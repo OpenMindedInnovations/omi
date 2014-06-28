@@ -12,15 +12,13 @@ en:
         title: Title
         Content: Blog content
         embed_id: Youtube video ID
-    hints:
-      blog:
-        title: Title
-        content: hint...
+
     placeholders:
       blog:
         title: Title
         content: Write your blog...
         video: Add youtube embed src link here
+        embed_id: Youtube video id
 
 
   helpers:
