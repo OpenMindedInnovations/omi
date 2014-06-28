@@ -1,0 +1,9 @@
+- if f.object.errors.any?
+  #errors.alert-box.secondary.radius
+    %h4.strong
+      = pluralize f.object.errors.count, 'error'
+      prevented this #{f.object.class.to_s.downcase} from saving...
+
+    %ul
+      - f.object.errors.full_messages.each do |error|
+        %li= error

@@ -1,0 +1,8 @@
+= simple_form_for blog, html: {class: 'blog-form'} do |f|
+  = render 'form_errors', f: f
+
+  = f.input :title
+  = f.input :tag_list
+  = f.input :video
+  = f.input :content
+  = f.button :submit

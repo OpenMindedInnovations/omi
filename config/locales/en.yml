@@ -1,0 +1,30 @@
+en:
+  simple_form:
+    "yes": 'Yes'
+    "no": 'No'
+    required:
+      text: 'required'
+      mark: '*'
+    error_notification:
+      default_message: "Please review the problems below:"
+    labels:
+      blog:
+        title: Title
+        Content: Blog content
+    hints:
+      blog:
+        title: Title
+        content: hint...
+    placeholders:
+      blog:
+        title: Title
+        content: Write your blog...
+        video: Add youtube embed src link here
+
+
+  helpers:
+    submit:
+      blog:
+        create: "Submit %{model}"
+        update: "Save Changes"
+
