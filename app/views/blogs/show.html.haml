@@ -3,9 +3,11 @@
     .small-10.small-offset-1.columns
       %h2
         = @blog.title
-      %p
+
+      .video-window
         - unless @blog.embed_id.blank?
           = youtube_video @blog.embed_id
+
       %p
         = markdown(@blog.content)
 
