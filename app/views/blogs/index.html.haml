@@ -20,11 +20,11 @@
       %h2
         = link_to blog.title, blog_path(blog)
       %p
-        - if blog.video.blank?
+        - if blog.embed_id.blank?
           = markdown(blog.content)
 
         - else
-          = youtube_video blog.video
+          = youtube_video blog.embed_id
       %p
         = raw blog.tags.map(&:name).map { |t| link_to t, tag_path(t)}.join(', ')
 

@@ -14,10 +14,10 @@
 ActiveRecord::Schema.define(version: 20140628021407) do
 
   create_table "blogs", force: true do |t|
+    t.integer  "author_id"
     t.string   "title"
     t.text     "content"
-    t.text     "video"
-    t.integer  "author_id"
+    t.string   "embed_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

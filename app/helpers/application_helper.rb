@@ -1,8 +1,4 @@
 module ApplicationHelper
-  def youtube_video(video)
-    render :partial => 'shared/video', :locals => { :video => video }
-  end
-
   class HTMLwithPygments < Redcarpet::Render::HTML
     def block_code(code, language)
       Pygments.highlight(code, lexer: language)

@@ -47,7 +47,7 @@ class BlogsController < ApplicationController
       params.require(:blog).permit(
         :title,
         :content,
-        :video,
+        :embed_id,
         :tag_list
       )
     end

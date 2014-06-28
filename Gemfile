@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.3'
+
+gem 'rails', '~> 4.1.1'
 gem 'sqlite3'
 gem 'haml'
-gem 'simple_form'
+gem 'simple_form', github: 'plataformatec/simple_form'
 gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'

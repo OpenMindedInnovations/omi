@@ -4,8 +4,8 @@
       %h2
         = @blog.title
       %p
-        - unless @blog.video.blank?
-          = youtube_video @blog.video
+        - unless @blog.embed_id.blank?
+          = youtube_video @blog.embed_id
       %p
         = markdown(@blog.content)
 
