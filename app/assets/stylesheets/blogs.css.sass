@@ -8,3 +8,16 @@
     border: 1px solid $dark-grey
     @include radius(4px)
     padding: .5rem 1rem
+
+
+  @media #{$medium-only}
+    .video-window
+      height: 400px
+
+  @media #{$small-only}
+    .video-window
+      height: 200px
+
+  @media #{$large-only}
+    .video-window
+      height: 600px

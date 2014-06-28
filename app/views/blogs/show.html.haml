@@ -3,7 +3,7 @@
     .small-10.small-offset-1.columns
       %h2
         = @blog.title
-      %p
+      .video-window
         - unless @blog.video.blank?
           = youtube_video @blog.video
       %p
