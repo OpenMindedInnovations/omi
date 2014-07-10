@@ -1,0 +1,13 @@
+%nav.main-nav-wrapper
+  .row
+    .small-12.columns
+      .main-nav
+        %h2.mobile-logo= link_to 'OMI', root_path
+        %h2.desktop-logo= link_to 'Open Minded Innovations', root_path
+        %ul
+          %li
+            = link_to 'About', about_path
+          %li
+            = link_to 'Screencasts', '/tags/screencast'
+          %li
+            = link_to 'Projects', projects_path

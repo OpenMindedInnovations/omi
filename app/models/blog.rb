@@ -1,9 +1,13 @@
 class Blog < ActiveRecord::Base
-  belongs_to :author
+  extend FriendlyId
+  friendly_id :title, use: [:slugged, :finders]
+
   has_many :taggings
   has_many :tags, through: :taggings
 
-  validates_presence_of :title, :content
+  validates_presence_of :title
+
+  self.per_page = 1
 
   def self.tagged_with(name)
     Tag.find_by_name!(name).blogs 

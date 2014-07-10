@@ -19,6 +19,11 @@ gem 'redcarpet'
 gem 'albino'
 gem 'nokogiri'
 gem 'pygments.rb'
+gem 'friendly_id', '~> 5.0.0' 
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'will_paginate-foundation'
+gem "fog"
 
 
 

@@ -1,0 +1,43 @@
+$nav-height: 4.75rem
+
+.main-nav-wrapper
+  height: $nav-height
+  margin-bottom: 2.5rem
+  background-color: $primary-color
+  .main-nav
+    h2
+      display: inline-block
+      font-weight: 300
+      line-height: $nav-height
+      margin-bottom: 0
+      a
+        color: #fff
+
+    .desktop-logo
+      display: inline-block
+
+    .mobile-logo
+      display: none
+
+    @media (max-width: 600px)
+      .desktop-logo
+        display: none
+
+      .mobile-logo
+        display: inline-block
+
+    ul 
+      display: inline-block
+      float: right
+      margin: 0
+
+      li
+        display: inline-block
+        height: 4.75rem
+        line-height: 4.75rem
+        margin-left: .5rem
+        &:first-child
+          margin-left: 0
+        a 
+          color: #fff
+          font-size: 15px

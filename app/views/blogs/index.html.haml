@@ -1,34 +1,6 @@
-.row
-  .small-12.columns
-    - if current_user
-      = link_to 'Log out', logout_path, class: 'button'
-
-    - else
-      = link_to 'Login with google', login_path, class: 'button'
-
-
-%h1 Blogs
-
-%h4
-  = link_to 'new blog', new_blog_path, class: 'button radius'
-
 - @blogs.each do |blog|
   .row
-    .small-2.columns
-      = blog.created_at.strftime("%B %d, %Y")
-    .small-10.columns
-      %h2
-        = link_to blog.title, blog_path(blog)
-      - if blog.embed_id.blank?
-        = markdown(blog.content)
-
-      - else
-        = youtube_video blog.embed_id
-
-      %p
-        = raw blog.tags.map(&:name).map { |t| link_to t, tag_path(t)}.join(', ')
-
-  .row
     .small-12.columns
-      = link_to 'Edit', edit_blog_path(blog), class: 'button radius secondary'
-      = link_to 'Delete', blog, class: 'button radius', method: :delete, data: {confirm: 'Are you sure?'}
+      = render blog
+
+= will_paginate @blogs, renderer: FoundationPagination::Rails

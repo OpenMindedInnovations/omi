@@ -2,11 +2,14 @@ class BlogsController < ApplicationController
   before_filter :get_blog, :only => [:show, :edit, :update, :destroy]
 
   def index
-    if params[:tag]
-      @blogs = Blog.tagged_with(params[:tag])
-    else
-      @blogs = Blog.all
+    #reset_session
+    @blogs = Blog.all
+
+    unless params[:tag].blank?
+      @blogs = @blogs.tagged_with(params[:tag])
     end
+    
+    @blogs = @blogs.order('created_at DESC').paginate(:page => params[:page])
   end
 
   def new
@@ -46,6 +49,7 @@ class BlogsController < ApplicationController
     def blog_params
       params.require(:blog).permit(
         :title,
+        :author,
         :content,
         :embed_id,
         :tag_list

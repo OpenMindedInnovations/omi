@@ -1,0 +1,12 @@
+.blog{class: ('video-blog' unless blog.embed_id.blank?)}
+  %header.blog-header
+    %h2
+      = link_to blog.title, blog_path(blog)
+    = render 'blogs/blog_info', blog: blog
+  
+  - unless blog.embed_id.blank?
+    = youtube_video blog.embed_id
+
+  - unless blog.content.blank?
+    .content
+      = markdown(blog.content)

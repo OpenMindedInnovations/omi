@@ -14,7 +14,7 @@ $include-html-global-classes: $include-html-classes;
 $include-html-grid-classes: $include-html-classes;
 
 
-$primary-color: #008CBA;
+$primary-color: #4183c4;
 $secondary-color: #e7e7e7;
 $alert-color: #f04124;
 $success-color: #43AC6A;
@@ -23,13 +23,13 @@ $info-color: #a0d3e8;
 
 $body-bg: #fff;
 $body-font-color: #222;
-$body-font-family: 'Open Sans', sans-serif;
+$body-font-family: 'Merriweather', serif;
 $body-font-weight: normal;
 $body-font-style: normal;
 
 
 // $include-xl-html-grid-classes: false;
-$row-width: rem-calc(1200);
+$row-width: rem-calc(1000);
 $column-gutter: 1rem;
 $total-columns: 12;
 
@@ -89,10 +89,10 @@ $xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (m
 $include-html-type-classes: $include-html-classes;
 
 // We use these to control header font styles
-$header-font-family: 'Merriweather', serif;
-$header-font-weight: bold;
+$header-font-family: 'Open Sans', sans-serif;
+$header-font-weight: 600;
 // $header-font-style: normal;
-// $header-font-color: #222;
+$header-font-color: #000;
 // $header-line-height: 1.4;
 $header-top-margin: 0rem;
 // $header-bottom-margin: .5rem;
@@ -100,7 +100,7 @@ $header-top-margin: 0rem;
 
 // We use these to control header font sizes
 // $h1-font-size: rem-calc(44);
-// $h2-font-size: rem-calc(37);
+$h2-font-size: 2rem;
 // $h3-font-size: rem-calc(27);
 // $h4-font-size: rem-calc(23);
 // $h5-font-size: rem-calc(18);
@@ -118,7 +118,7 @@ $header-top-margin: 0rem;
 // $small-font-color: scale-color($header-font-color, $lightness: 35%);
 
 // We use these to style paragraphs
-$paragraph-font-family: 'Open Sans', sans-serif;
+$paragraph-font-family: 'Merriweather', serif;
 // $paragraph-font-weight: normal;
 // $paragraph-font-size: 1rem;
 $paragraph-line-height: $base-line-height;
@@ -135,8 +135,8 @@ $paragraph-line-height: $base-line-height;
 
 // We use these to style anchors
 // $anchor-text-decoration: none;
-// $anchor-font-color: $primary-color;
-// $anchor-font-color-hover: scale-color($primary-color, $lightness: -14%);
+$anchor-font-color: $off-black;
+$anchor-font-color-hover: darken($primary-color, 5%);
 
 // We use these to style the <hr> element
 // $hr-border-width: 1px;
@@ -288,7 +288,7 @@ $paragraph-line-height: $base-line-height;
 $include-html-button-classes: $include-html-classes;
 
 // We use these to build padding for buttons.
-// $button-tny: rem-calc(10);
+$button-tny: .2rem;
 // $button-sml: rem-calc(14);
 // $button-med: rem-calc(16);
 // $button-lrg: rem-calc(18);
@@ -298,7 +298,7 @@ $include-html-button-classes: $include-html-classes;
 // $button-margin-bottom: rem-calc(20);
 
 // We use these to control button text styles.
-// $button-font-family: $body-font-family;
+$button-font-family: $header-font-family;
 // $button-font-color: #fff;
 // $button-font-color-alt: #333;
 // $button-font-tny: rem-calc(11);
@@ -1099,16 +1099,16 @@ $include-html-button-classes: $include-html-classes;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: #333;
+// $topbar-bg-color: #2854a1;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
-// $topbar-height: 45px;
+// $topbar-height: 60px;
 // $topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar
 // $topbar-title-weight: normal;
-// $topbar-title-font-size: rem-calc(17);
+// $topbar-title-font-size: rem-calc(20);
 
 // Style the top bar dropdown elements
 // $topbar-dropdown-bg: #333;
@@ -1125,9 +1125,9 @@ $include-html-button-classes: $include-html-classes;
 // $topbar-link-color-active: #fff;
 // $topbar-link-color-active-hover: #fff;
 // $topbar-link-weight: normal;
-// $topbar-link-font-size: rem-calc(13);
+// $topbar-link-font-size: rem-calc(15);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
-// $topbar-link-bg-hover: #272727;
+// $topbar-link-bg-hover: $topbar-bg-color;
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
 // $topbar-link-font-family: $body-font-family;

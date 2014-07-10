@@ -3,21 +3,41 @@
     min-height: 20rem
 
 .blog
+  .blog-header
+    margin-bottom: 1rem
+    h2
+      margin-bottom: .25rem
+
+    .blog-info
+      .button
+        margin-left: .5rem
+        margin-bottom: 0
+        vertical-align: middle
+
+      .author-info
+        color: $darker-grey
+
   .highlight
     background-color: $grey
     border: 1px solid $dark-grey
     @include radius(4px)
     padding: .5rem 1rem
+    
+    pre
+      overflow-x: scroll 
 
+  .video-wrapper
+    margin: 1rem 0
 
-  @media #{$medium-only}
-    .video-window
-      height: 400px
-
-  @media #{$small-only}
-    .video-window
+    @media #{$small-only}
       height: 200px
 
-  @media #{$large-only}
-    .video-window
+    @media #{$medium-only}
+      height: 400px
+
+    @media #{$large-up}
       height: 600px
+
+
+  #disqus_thread
+    margin-top: 4rem

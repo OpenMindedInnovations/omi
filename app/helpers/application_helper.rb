@@ -4,6 +4,18 @@ module ApplicationHelper
       Pygments.highlight(code, lexer: language)
     end
   end
+
+  def is_admin
+    if current_user
+      if current_user.is_admin
+        return true
+      else
+        return false
+      end
+    else
+      return false
+    end
+  end
       
   def markdown(text)
     options = {

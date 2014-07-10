@@ -1,10 +1,10 @@
 class CreateBlogs < ActiveRecord::Migration
   def change
     create_table :blogs do |t|
-      t.references :author, index: true
-
       t.string :title
+      t.string :author
       t.text :content
+      t.string :slug, :null => false, :unique => true
 
       t.string :embed_id
 

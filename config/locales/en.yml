@@ -10,6 +10,7 @@ en:
     labels:
       blog:
         title: Title
+        author: Blog author
         Content: Blog content
         embed_id: Youtube video ID
 

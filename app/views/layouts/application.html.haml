@@ -4,10 +4,13 @@
     %meta{charset: "utf-8"}
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
     %title= content_for?(:title) ? yield(:title) : "Open Minded Innovations"
-    %link{href: "http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700|Merriweather:400,700,900", rel: "stylesheet", type: "text/css"}
+    %link{href: "http://fonts.googleapis.com/css?family=Open+Sans:400italic,300,400,600,700|Merriweather:400,700,900", rel: "stylesheet", type: "text/css"}
+    %link{href: "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css", rel: "stylesheet"}
     = stylesheet_link_tag    "application"
     = javascript_include_tag "vendor/modernizr"
     = csrf_meta_tags
+
+  = render 'layouts/header'
   %body{:class => body_classes}
     .row
       .small-12.columns
