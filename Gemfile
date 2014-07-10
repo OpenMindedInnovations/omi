@@ -24,6 +24,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'will_paginate-foundation'
 gem "fog"
+gem 'rails_12factor', group: :production
+gem 'pg', group: :production
 
 
 
