@@ -27,8 +27,12 @@ gem "fog"
 gem 'rails_12factor', group: :production
 gem 'pg', group: :production
 
+gem 'dalli'
+
 
 
 group :doc do
   gem 'sdoc', require: false
 end
+
+ruby "2.0.0"

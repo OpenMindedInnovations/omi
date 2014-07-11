@@ -14,20 +14,20 @@
       %p
         = link_to 'Mark down cheat sheet', 'https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet', target: "_blank"
 
-
-.admin-project-list
-  %ul
-    %li
-      .row
-        .small-8.columns
-          %h3= link_to 'Projects', projects_path
-    - @projects.each do |project|
+- if is_admin
+  .admin-project-list
+    %ul
       %li
         .row
           .small-8.columns
-            = link_to project.title, project
-          .small-2.columns
-            = link_to 'edit', edit_project_path(project), class: 'button tiny alert radius'
+            %h3= link_to 'Projects', projects_path
+      - @projects.each do |project|
+        %li
+          .row
+            .small-8.columns
+              = link_to project.title, project
+            .small-2.columns
+              = link_to 'edit', edit_project_path(project), class: 'button tiny alert radius'
 
-          .small-2.columns
-            = link_to 'Delete', project, class: 'button tiny alert radius', method: :delete, data: {confirm: 'Are you sure?'}
+            .small-2.columns
+              = link_to 'Delete', project, class: 'button tiny alert radius', method: :delete, data: {confirm: 'Are you sure?'}
