@@ -7,7 +7,7 @@ class Blog < ActiveRecord::Base
 
   validates_presence_of :title
 
-  self.per_page = 1
+  self.per_page = 6
 
   def self.tagged_with(name)
     Tag.find_by_name!(name).blogs 
