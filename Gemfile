@@ -27,6 +27,9 @@ gem "fog"
 gem 'rails_12factor', group: :production
 gem 'pg', group: :production
 
+# Web analytics
+gem 'google-analytics-rails'
+
 gem 'dalli'
 gem 'memcachier'
 
@@ -36,4 +39,4 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-ruby "2.0.0"
+ruby "2.1.1"
