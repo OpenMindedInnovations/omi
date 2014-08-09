@@ -31,6 +31,7 @@ gem 'pg', group: :production
 gem 'google-analytics-rails'
 
 gem 'dalli'
+gem 'memcachier'
 
 
 

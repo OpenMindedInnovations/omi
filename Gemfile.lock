@@ -91,6 +91,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    memcachier (0.0.2)
     mime-types (1.25.1)
     mini_magick (3.7.0)
       subexec (~> 0.2.1)
@@ -208,6 +209,7 @@ DEPENDENCIES
   haml
   jquery-rails
   js-routes
+  memcachier
   mini_magick
   nokogiri
   omniauth-google-oauth2
