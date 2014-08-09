@@ -6,6 +6,9 @@
     %title= content_for?(:title) ? yield(:title) : "Open Minded Innovations"
     %link{href: "http://fonts.googleapis.com/css?family=Open+Sans:400italic,300,400,600,700|Merriweather:400,700,900", rel: "stylesheet", type: "text/css"}
     %link{href: "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css", rel: "stylesheet"}
+
+    = analytics_init if Rails.env.production?
+
     = stylesheet_link_tag    "application"
     = javascript_include_tag "vendor/modernizr"
     = csrf_meta_tags
