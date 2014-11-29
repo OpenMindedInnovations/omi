@@ -1,3 +1,6 @@
+- title @blog.title
+- keywords @blog.tags.map(&:name)
+
 .row
   .small-12.columns
     = render @blog

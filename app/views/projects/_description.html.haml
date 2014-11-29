@@ -3,7 +3,6 @@
     %b Description: 
     = markdown(project.description)
 
-  %p 
-    = link_to projects_path do
-      %i.fa.fa-arrow-left
-      Back to projects
+= link_to projects_path, class: 'button radius' do
+  %i.fa.fa-arrow-left
+  Back to projects

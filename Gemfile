@@ -26,6 +26,7 @@ gem 'will_paginate-foundation'
 gem "fog"
 gem 'rails_12factor', group: :production
 gem 'pg', group: :production
+gem 'meta-tags'
 
 # Web analytics
 gem 'google-analytics-rails'

@@ -3,13 +3,13 @@
   %head
     %meta{charset: "utf-8"}
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
-    %title= content_for?(:title) ? yield(:title) : "Open Minded Innovations"
+    / %title= content_for?(:title) ? yield(:title) : "Open Minded Innovations"
     %link{href: "http://fonts.googleapis.com/css?family=Open+Sans:400italic,300,400,600,700|Merriweather:400,700,900", rel: "stylesheet", type: "text/css"}
     %link{href: "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css", rel: "stylesheet"}
 
     %script{:async => "", "data-sumo-site-id" => "76d444f3db5d1e2a0a5e261f3cc823bb82aced34481e9e7bc9cdb64165c8aa0f", :src => "//load.sumome.com/"}
 
-    %meta{name:"google-site-verification", content:"cuA4E-09GiPLe5WmTEgvyqW-OFp2IxVEUyoeI--WiWs"}
+    = display_meta_tags site: 'Open Minded Innovations', reverse: true, description: "Open Minded Innovations is an organization dedicated to helping everyone live a happy and fulfilling life. We believe that people thrive when they are given oppurtunities to apply themselves. Technology is our medium for change and we strongly support Open Source and education.", keywords: %w[technology screencasts development organization community tutorials education open source projects products business entrepeneurship code]
 
     = analytics_init if Rails.env.production?
 

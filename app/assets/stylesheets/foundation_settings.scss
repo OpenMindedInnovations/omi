@@ -134,7 +134,7 @@ $paragraph-line-height: $base-line-height;
 // $code-font-weight: bold;
 
 // We use these to style anchors
-// $anchor-text-decoration: none;
+// $anchor-text-decoration: underline;
 $anchor-font-color: $off-black;
 $anchor-font-color-hover: darken($primary-color, 5%);
 
