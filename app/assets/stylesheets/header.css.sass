@@ -1,7 +1,7 @@
 $nav-height: 4.75rem
 
 .main-nav-wrapper
-  height: $nav-height
+  height: 2*$nav-height
   margin-bottom: 2.5rem
   background-color: $primary-color
   .main-nav
@@ -42,3 +42,44 @@ $nav-height: 4.75rem
         a 
           color: #fff
           font-size: 16px
+
+  .secondary-nav
+    height: $nav-height
+    background-color: #2E2C2E
+    width: 100%
+    position: relative
+    
+    h2.secondary-message
+      font-size: 20px
+      font-size: 1rem
+      line-height: 1.5rem
+      color: #fff
+      width: 500px
+      font-weight: 400
+      padding-top: .875rem
+
+
+    .secondary-button
+      position: absolute
+      right: .5rem
+      top: $nav-height/4
+      height: $nav-height/2
+      line-height: $nav-height/2 - .2rem
+      border-radius: $global-radius
+      width: 300px
+      text-align: center
+      border: 2px solid #fff
+      color: #fff
+      font-weight: 600
+
+    @media (max-width: 800px)
+      h2.secondary-message
+        display: none
+
+      .secondary-button
+        // position: relative
+        // height: 40px
+        // line-height: 40px
+        left: .5rem
+        width: auto
+

@@ -34,7 +34,7 @@ class BlogsController < ApplicationController
 
   def update
     if @blog.update(blog_params)
-      redirect_to blog_path(@blog), notice: 'Blog was successfully updated.'
+      redirect_to blog_path(@blog)
     else
       render action: 'edit'
     end
@@ -42,7 +42,7 @@ class BlogsController < ApplicationController
 
   def destroy
     @blog.destroy
-    redirect_to root_path, notice: 'Blog was successfully destroyed.'
+    redirect_to root_path
   end
 
   private
@@ -57,6 +57,6 @@ class BlogsController < ApplicationController
     end
 
     def get_blog
-      @blog = Blog.find(params[:id])
+      @blog = Blog.friendly.find(params[:id])
     end
 end

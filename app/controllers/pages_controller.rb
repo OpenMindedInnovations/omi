@@ -7,12 +7,12 @@ class PagesController < ApplicationController
     @projects = Project.all
   end
 
-  def student_registration
-  end
+  # def student_registration
+  # end
 
-  def helper_registration
-  end
+  # def helper_registration
+  # end
 
-  def project_registration
-  end
+  # def project_registration
+  # end
 end
