@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '~> 4.2.0'
+gem 'rails', '~> 4.2.3'
 gem 'sqlite3', group: :development
 gem 'haml'
 gem 'simple_form', github: 'plataformatec/simple_form'
@@ -34,10 +34,4 @@ gem 'google-analytics-rails'
 gem 'dalli'
 gem 'memcachier'
 
-
-
-group :doc do
-  gem 'sdoc', require: false
-end
-
-ruby "2.1.1"
+ruby '2.2.2'
