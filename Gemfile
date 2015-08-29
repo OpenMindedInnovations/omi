@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '~> 4.2.3'
+gem 'rails', '~> 4.2.4'
 gem 'sqlite3', group: :development
 gem 'haml'
 gem 'simple_form', github: 'plataformatec/simple_form'
@@ -12,9 +12,10 @@ gem 'jquery-rails'
 gem 'js-routes'
 # gem 'turbolinks'
 
+gem 'devise'
+
 gem 'foundation-rails'
 gem 'figaro'
-gem 'omniauth-google-oauth2'
 gem 'redcarpet'
 gem 'albino'
 gem 'nokogiri'

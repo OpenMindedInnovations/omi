@@ -1,4 +1,5 @@
 Omi1::Application.routes.draw do
+  devise_for :users
   get 'auth/:provider/callback', to: 'authentications#create'
   get 'signout', to: 'authentications#destroy', as: :logout
   get '/auth/google_oauth2', as: 'login'
