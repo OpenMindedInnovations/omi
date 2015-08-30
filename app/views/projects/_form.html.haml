@@ -1,7 +1,7 @@
 = simple_form_for project, html: {class: 'project-form', multipart: true} do |f|
   = render 'form_errors', f: f
 
-  = f.input :title
+  = f.input :name
   = f.input :description
   = f.file_field :image
   = f.button :submit

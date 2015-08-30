@@ -31,9 +31,17 @@ b4.tags << t4
 b4.tags << t5
 b4.tags << t6
 
-p1 = Project.create!(title: 'Music Festival Nation', description: 'Music Festival Nation is striving to be your one stop shop for anything and everything music festival related. Find rides, get up to date information, and more!')
+p1 = Project.create!(name: 'Music Festival Nation',
+                     category: :product,
+                     status: :active,
+                     is_public: true,
+                     description: 'Music Festival Nation is striving to be your one stop shop for anything and everything music festival related. Find rides, get up to date information, and more!')
 
-p2 = Project.create!(title: 'Find Me in the Clouds', description: 'Mandy Grotie loves to create art that explodes with color! Experience the funky style and passion behind her work.')
+p2 = Project.create!(name: 'Find Me in the Clouds',
+                     category: :contract,
+                     status: :completed,
+                     is_public: true,
+                     description: 'Mandy Grotie loves to create art that explodes with color! Experience the funky style and passion behind her work.')
 
 
 

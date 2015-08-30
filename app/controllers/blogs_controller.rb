@@ -1,8 +1,8 @@
 class BlogsController < ApplicationController
+  layout 'landing'
   before_filter :get_blog, :only => [:show, :edit, :update, :destroy]
 
   def index
-    #reset_session
     @blogs = Blog.all
 
     unless params[:tag].blank?

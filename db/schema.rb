@@ -11,23 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150829235653) do
+ActiveRecord::Schema.define(version: 20150830033850) do
 
   create_table "blogs", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.string   "author",     limit: 255
+    t.string   "title"
+    t.string   "author"
     t.text     "content"
-    t.string   "slug",       limit: 255, null: false
-    t.string   "embed_id",   limit: 255
+    t.string   "slug",       null: false
+    t.string   "embed_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
-    t.string   "slug",           limit: 255, null: false
-    t.integer  "sluggable_id",               null: false
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
     t.string   "sluggable_type", limit: 50
-    t.string   "scope",          limit: 255
+    t.string   "scope"
     t.datetime "created_at"
   end
 
@@ -36,13 +36,27 @@ ActiveRecord::Schema.define(version: 20150829235653) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
+  create_table "ideas", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "ideas", ["user_id"], name: "index_ideas_on_user_id"
+
   create_table "projects", force: :cascade do |t|
-    t.string   "title",       limit: 255
+    t.string   "name"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image",       limit: 255
-    t.string   "slug",        limit: 255
+    t.string   "image"
+    t.string   "slug"
+    t.string   "status"
+    t.boolean  "is_public",   default: false
+    t.string   "category"
+    t.integer  "user_id"
   end
 
   add_index "projects", ["slug"], name: "index_projects_on_slug", unique: true
@@ -58,7 +72,7 @@ ActiveRecord::Schema.define(version: 20150829235653) do
   add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id"
 
   create_table "tags", force: :cascade do |t|
-    t.string   "name",       limit: 255
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -78,6 +92,7 @@ ActiveRecord::Schema.define(version: 20150829235653) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.string   "admin"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end

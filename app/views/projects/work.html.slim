@@ -1,0 +1,8 @@
+- title 'Work'
+- description 'Showcase of all businesses, ideas, and projects involved with Open Minded Innovations. We like create our own awesome projects but we love to help out other people make their ideas real.'
+
+.container
+  .row
+    - @projects.each do |project|
+      .col-xs-12.col-md-6
+        = render project

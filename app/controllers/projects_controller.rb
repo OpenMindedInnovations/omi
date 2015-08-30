@@ -5,6 +5,16 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
+  def work
+    @projects = Project.with_category(:contract).where(is_public: true)
+    render layout: 'landing'
+  end
+
+  def products
+    @projects = Project.with_category(:product).where(is_public: true)
+    render layout: 'landing'
+  end
+
   def new 
     @project = Project.new
   end
@@ -41,7 +51,7 @@ class ProjectsController < ApplicationController
   private
     def project_params
       params.require(:project).permit(
-        :title,
+        :name,
         :description,
         :image
       )

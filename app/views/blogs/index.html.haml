@@ -1,6 +1,8 @@
-- @blogs.each do |blog|
-  .row
-    .small-12.columns
-      = render blog
+.container
+  
+  - @blogs.each do |blog|
+    .row
+      .col-xs-12
+        = render blog
 
-= will_paginate @blogs, renderer: FoundationPagination::Rails
+  = will_paginate @blogs, renderer: FoundationPagination::Rails

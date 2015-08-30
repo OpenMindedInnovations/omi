@@ -1,18 +1,16 @@
-.row
-  .small-12.columns
-    %p  
-      for admins... 
+%p  
+  for admins... 
 
-    - if current_user
-      = link_to 'Log out', logout_path, class: 'tiny button'
-    - else
-      = link_to 'Login with google', login_path, class: 'tiny button'
-     
-    - if is_admin
-      = link_to 'new blog', new_blog_path, class: 'button tiny'
-      = link_to 'new project', new_project_path, class: 'button tiny'
-      %p
-        = link_to 'Mark down cheat sheet', 'https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet', target: "_blank"
+- if current_user
+  = link_to 'Log out', logout_path, class: 'tiny button'
+- else
+  = link_to 'Login with google', login_path, class: 'tiny button'
+ 
+- if is_admin
+  = link_to 'new blog', new_blog_path, class: 'button tiny'
+  = link_to 'new project', new_project_path, class: 'button tiny'
+  %p
+    = link_to 'Mark down cheat sheet', 'https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet', target: "_blank"
 
 - if is_admin
   .admin-project-list

@@ -1,0 +1,23 @@
+doctype html
+html lang="en" 
+  head
+    meta charset="utf-8" 
+    meta content="width=device-width, initial-scale=1.0" name= "viewport" 
+    link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,300,400,600,700|Merriweather:400,700,900" rel="stylesheet" type= "text/css" 
+    link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" 
+
+    meta content="385050DC0D2B4762B3163D5D48FD6584" name="msvalidate.01" 
+
+    = render 'layouts/favicons'
+
+    = display_meta_tags site: 'Open Minded Innovations', reverse: true, description: "Open Minded Innovations is an organization dedicated to helping everyone live a happy and fulfilling life. We believe that people thrive when they are given opportunities to apply themselves. Technology is our medium for change and we strongly support Open Source and education.", keywords: %w[technology screencasts development organization community tutorials education open source projects products business entrepeneurship code]
+
+    = analytics_init if Rails.env.production?
+
+    = stylesheet_link_tag    "application"
+    = csrf_meta_tags
+
+  body class=body_classes 
+    = render 'layouts/header'
+    = yield
+    = javascript_include_tag "application"
