@@ -31,17 +31,69 @@ b4.tags << t4
 b4.tags << t5
 b4.tags << t6
 
+
+user1 = User.new(email: 'greg@greg.com', first_name: 'greg', last_name: 'guy', password: 'asdfasdf', password_confirmation: 'asdfasdf')
+user2 = User.new(email: 'steve@steve.com', first_name: 'steve', last_name: 'guy', password: 'asdfasdf', password_confirmation: 'asdfasdf')
+user3 = User.new(email: 'jj@jj.com', first_name: 'jj', last_name: 'guy', password: 'asdfasdf', password_confirmation: 'asdfasdf')
+
+user1.skip_confirmation!
+user2.skip_confirmation!
+user3.skip_confirmation!
+
+user1.save!
+user2.save!
+user3.save!
+
 p1 = Project.create!(name: 'Music Festival Nation',
+                     user: user1,
                      category: :product,
                      status: :active,
                      is_public: true,
                      description: 'Music Festival Nation is striving to be your one stop shop for anything and everything music festival related. Find rides, get up to date information, and more!')
 
 p2 = Project.create!(name: 'Find Me in the Clouds',
+                     user: user2,
                      category: :contract,
                      status: :completed,
                      is_public: true,
                      description: 'Mandy Grotie loves to create art that explodes with color! Experience the funky style and passion behind her work.')
+
+p3 = Project.create!(name: 'Hamilton House Education Consulting',
+                     user: user3,
+                     category: :contract,
+                     status: :completed,
+                     is_public: true,
+                     description: 'We made a website for this group that helps Chinese studnets get into American and UK universites.')
+
+p4 = Project.create!(name: 'Festy Box',
+                     user: user1,
+                     category: :product,
+                     status: :active,
+                     is_public: true,
+                     description: 'Monthly subscription box for festival related goods.')
+
+p5 = Project.create!(name: 'Pin Squad',
+                     user: user2,
+                     category: :product,
+                     status: :active,
+                     is_public: false,
+                     description: 'Pin Squad makes custom pins for companies and artists.')
+
+idea1 = Idea.create(name: 'Video Application',
+                    description: 'Employers can use this service to create a webpage that applicants can go to. The employers create a list of questions that the applicants answer with video.',
+                    user: user1)
+
+idea2 = Idea.create(name: 'Coding Quizes',
+                    description: 'Coders can create quizes relating to a programming topic and other coders vote on them.',
+                    user: user1)
+
+idea3 = Idea.create(name: 'Mentorship platform',
+                    description: 'Mentors can create paths with various types of educational resources for students to follow. The students can interact with the mentors.',
+                    user: user2)
+
+idea4 = Idea.create(name: 'Glow in the dark fly strips',
+                    description: 'Disposable glow in the dark fly strips. They would attract bugs better.',
+                    user: user3)
 
 
 
