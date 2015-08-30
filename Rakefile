@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Omi1::Application.load_tasks
+OMI::Application.load_tasks

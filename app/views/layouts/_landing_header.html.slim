@@ -10,7 +10,11 @@ nav.navbar.navbar-default#landing-header
       a.navbar-brand.visible-xs-inline href=root_path OMI
     #navbar-collapse.collapse.navbar-collapse
       ul.nav.navbar-nav.navbar-right
-        li= link_to 'Ideas', ideas_path
-        li= link_to 'Projects', projects_path
-        li= link_to 'Members', users_path
-        li= link_to 'Logout' , destroy_user_session_path, :method=>'delete'
+        li= link_to 'About', about_path
+        li= link_to 'Blog', blogs_path
+        li= link_to 'Work', work_path
+        li= link_to 'Products', products_path
+        - if user_signed_in?
+          li= link_to 'Logout' , destroy_user_session_path, :method=>'delete'
+        - else
+          li= link_to 'Login', new_user_session_path

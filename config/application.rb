@@ -4,8 +4,14 @@ require 'rails/all'
 
 Bundler.require(:default, Rails.env)
 
-module Omi1
+module OMI
   class Application < Rails::Application
     config.sass.preferred_syntax = :sass
+    config.to_prepare do
+      Devise::SessionsController.layout 'landing'
+      Devise::RegistrationsController.layout proc{ |controller| 'landing' }
+      Devise::ConfirmationsController.layout 'landing'
+      Devise::PasswordsController.layout 'landing'
+    end
   end
 end

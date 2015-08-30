@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Omi1::Application.config.secret_key_base = '22d2b7efccb91037644603fd9139ed78cd694ded85d84a9c5a2904e57117508af9371c0b49ebc81f819facc61f783ce52a8e2e5a9fb61576b9a9f1dbdfc091cf'
+OMI::Application.config.secret_key_base = '22d2b7efccb91037644603fd9139ed78cd694ded85d84a9c5a2904e57117508af9371c0b49ebc81f819facc61f783ce52a8e2e5a9fb61576b9a9f1dbdfc091cf'

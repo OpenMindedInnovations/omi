@@ -1,4 +1,4 @@
-Omi1::Application.routes.draw do
+OMI::Application.routes.draw do
   resources :ideas
   devise_for :users
   get 'auth/:provider/callback', to: 'authentications#create'
@@ -19,5 +19,7 @@ Omi1::Application.routes.draw do
 
   get 'work', to: 'projects#work', as: :work
   get 'products', to: 'projects#products', as: :products
+
+  resources :users, only: [:index]
 
 end
