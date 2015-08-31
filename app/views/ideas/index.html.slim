@@ -1,3 +1,9 @@
+h1
+  | Ideas
+  = link_to new_idea_path, class: 'btn btn-success pull-right' do
+    i.fa.fa-plus
+    |  Add Idea
+
 - @ideas.each do |idea|
   .panel.panel-primary
     .panel-heading= idea.name

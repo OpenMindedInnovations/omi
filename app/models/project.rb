@@ -9,7 +9,7 @@ class Project < ActiveRecord::Base
   enumerize :category, in: [:personal, :contract, :product, :open_source], predicates: true, scope: true
   enumerize :status, in: [:active, :inactive, :completed, :new], predicates: true, scope: true
 
-  validates_presence_of :category, :status
+  validates_presence_of :category, :status, :name, :description
 
   mount_uploader :image, ImageUploader
 end

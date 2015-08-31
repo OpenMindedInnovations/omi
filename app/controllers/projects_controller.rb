@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_user!, except: [:work, :products]
-  before_filter :get_project, :only => [:show, :edit, :update, :destroy]
+  before_filter :get_project, only: [:show, :edit, :update, :destroy]
 
   def index
     @projects = Project.all
@@ -32,7 +32,7 @@ class ProjectsController < ApplicationController
     if @project.save
       redirect_to projects_path
     else
-      redirect_to new_projects_path
+      render new_project_path
     end
   end
 
@@ -54,6 +54,8 @@ class ProjectsController < ApplicationController
       params.require(:project).permit(
         :name,
         :description,
+        :category,
+        :status,
         :image
       )
     end
