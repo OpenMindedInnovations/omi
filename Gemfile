@@ -17,6 +17,7 @@ gem 'js-routes'
 gem 'devise'
 gem 'awesome_print'
 gem 'enumerize'
+gem 'faker'
 
 gem 'figaro'
 gem 'redcarpet'

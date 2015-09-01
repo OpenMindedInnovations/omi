@@ -1,14 +1,14 @@
-h1 DASHBOARD
+h1= @user.full_name
 
 .row
   .col-xs-12.col-md-6
     h2 Ideas
-    - Idea.all.each do |idea|
+    - @user.ideas.each do |idea|
       h4= link_to idea.name, idea
       p= idea.description
 
   .col-xs-12.col-md-6
     h2 Projects
-    - Project.all.each do |project|
+    - @user.projects.each do |project|
       h4= link_to project.name, project
       p= project.description

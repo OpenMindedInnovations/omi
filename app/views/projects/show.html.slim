@@ -1,11 +1,15 @@
 - title @project.name
 - description @project.description
 
+h1= @project.name
+p
+  b Introduction: 
+  = Faker::Lorem.paragraph(5)
 .row
-  .small-12.medium-6.columns
+  .col-xs-12.col-md-6
     = render @project
 
-  .small-12.medium-6.columns
+  .col-xs-12.col-md-6
     = render 'projects/description', project: @project
 
     

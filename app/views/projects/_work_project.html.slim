@@ -1,0 +1,8 @@
+.project  
+  .project-image
+    = link_to work_show_path(project) do
+      = image_tag project.image_url
+  .project-title
+    h4
+      = link_to work_show_path(project.slug) do
+        = project.name

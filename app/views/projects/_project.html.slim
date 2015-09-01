@@ -1,9 +1,9 @@
-- cache project, :expires_in => 10.minutes do
+- cache project, expires_in: 10.minutes do
   .project  
     .project-image
       = link_to project do
         = image_tag project.image_url
     .project-title
-      %h4
+      h4
         = link_to project do
           = project.name

@@ -1,0 +1,8 @@
+.project  
+  .project-image
+    = link_to products_show_path(project.id) do
+      = image_tag project.image_url
+  .project-title
+    h4
+      = link_to products_show_path(project.id) do
+        = project.name

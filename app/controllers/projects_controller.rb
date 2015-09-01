@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_user!, except: [:work, :products]
-  before_filter :get_project, only: [:show, :edit, :update, :destroy]
+  before_filter :get_project, only: [:show, :edit, :update, :destroy, :work_show, :products_show]
 
   def index
     @projects = Project.all
@@ -11,9 +11,17 @@ class ProjectsController < ApplicationController
     render layout: 'landing'
   end
 
+  def work_show
+    render layout: 'landing', template: 'projects/work_show'
+  end
+
   def products
     @projects = Project.with_category(:product).where(is_public: true)
     render layout: 'landing'
+  end
+
+  def products_show
+    render layout: 'landing', template: 'projects/products_show'
   end
 
   def new 

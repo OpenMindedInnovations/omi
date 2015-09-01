@@ -5,4 +5,4 @@
   .row
     - @projects.each do |project|
       .col-xs-12.col-md-6
-        = render project
+        = render 'projects/work_project', project: project

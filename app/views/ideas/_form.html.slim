@@ -1,9 +1,9 @@
 h1 New Idea
 = simple_form_for idea, html: {class: 'idea-form', multipart: true} do |f|
 
-  = f.input :name
-  = f.input :description
-  = f.input :category, prompt: 'Select Category'
-  = f.input :status, selected: :new
-  = f.file_field :image
+  = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
+
+  = f.input :name, placeholder: 'Name'
+  = f.input :description, placeholder: 'Enter a description for the idea...'
+
   = f.button :submit

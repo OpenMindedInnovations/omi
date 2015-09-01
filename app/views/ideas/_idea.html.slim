@@ -1,9 +1,4 @@
 - cache idea, expires_in: 10.minutes do
-  .idea  
-    .idea-image
-      = link_to idea do
-        = image_tag idea.image_url
-    .idea-title
-      %h4
-        = link_to idea do
-          = idea.name
+  .panel.panel-primary
+    .panel-heading= idea.name
+    .panel-body= idea.description
