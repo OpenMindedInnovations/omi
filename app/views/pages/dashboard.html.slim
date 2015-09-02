@@ -1,12 +1,10 @@
-h1 DASHBOARD
-
 .row
   .col-xs-12.col-md-6
-    h2 Ideas
+    h2.header Treanding Ideas
     - Idea.all.each do |idea|
       = render idea
 
   .col-xs-12.col-md-6
-    h2 Projects
+    h2.header Featured Projects
     - Project.all.each do |project|
       = render project
