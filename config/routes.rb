@@ -15,7 +15,11 @@ OMI::Application.routes.draw do
 
   resources :blogs
   resources :projects
-  resources :ideas
+  resources :ideas do
+    member do
+      put :upvote
+    end
+  end
 
   get 'work', to: 'projects#work', as: :work
   get 'work/:id', to: 'projects#work_show', as: :work_show

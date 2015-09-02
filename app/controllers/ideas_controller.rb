@@ -1,6 +1,6 @@
 class IdeasController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :get_idea, only: [:show, :edit, :update, :destroy]
+  before_filter :get_idea, only: [:show, :edit, :update, :destroy, :upvote]
 
   def index
     @ideas = Idea.all
@@ -14,6 +14,11 @@ class IdeasController < ApplicationController
   end
 
   def edit
+  end
+
+  def upvote
+    @idea.liked_by current_user
+    render json: { upvotes: @idea.votes_for.up.size, current_user_upvote: current_user.voted_up_on?(@idea) }
   end
 
   def create

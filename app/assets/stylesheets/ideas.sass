@@ -1,0 +1,35 @@
+$voting-width: 5rem
+
+.idea
+  position: relative
+  margin-bottom: 3rem
+  cursor: pointer
+  padding: 1rem .5rem
+  .idea-voting
+    position: absolute
+    left: .5rem
+    top: 1rem
+    width: $voting-width
+    text-align: center
+
+    .idea-upvote
+      color: $darker-grey
+      cursor: pointer
+      i
+        font-size: 3rem
+
+      &:hover
+        color: darken($darker-grey, 10%)
+
+      &.upvoted
+        color: $blue
+
+  .idea-details
+    padding-left: $voting-width
+    h4
+      margin-top: 0
+
+
+  &:hover
+    background: darken($grey, 5%)
+    border-radius: $border-radius-base

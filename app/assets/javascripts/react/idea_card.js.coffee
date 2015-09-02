@@ -1,9 +1,30 @@
 {div, a, h4, ul, li, span, p, textarea, i} = React.DOM
 
 window.IdeaCard = React.createClass
+  getInitialState: ->
+    upvotes: @props.upvotes
+    current_user_upvote: @props.current_user_upvote
+
+  onIdeaCardClick: ->
+    window.location = Routes.idea_path(@props.id)
+
+  onUpvote: (e)->
+    $.ajax
+      url: Routes.upvote_idea_path(@props.id)
+      type: 'PUT'
+      success: (response)=>
+        @setState(upvotes: response.upvotes, current_user_upvote: response.current_user_upvote)
+    e.stopPropagation()
+
   render: ->
-    console.log @props
-    div {},
-      h4 {},
-        a href: Routes.idea_path(@props.id), @props.name
-      p {}, @props.description
+    upvote_classes = 'idea-upvote'
+    upvote_classes += ' upvoted' if @state.current_user_upvote
+
+    div onClick: @onIdeaCardClick, className: 'idea',
+      div className: 'idea-voting',
+        a onClick: @onUpvote, className: upvote_classes,
+          i className: 'fa fa-arrow-circle-up'
+        p {}, @state.upvotes
+      div className: 'idea-details',
+        h4 {}, @props.name
+        p {}, @props.description
