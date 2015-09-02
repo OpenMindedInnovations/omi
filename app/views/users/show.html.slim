@@ -4,11 +4,9 @@ h1= @user.full_name
   .col-xs-12.col-md-6
     h2 Ideas
     - @user.ideas.each do |idea|
-      h4= link_to idea.name, idea
-      p= idea.description
+      = render idea
 
   .col-xs-12.col-md-6
     h2 Projects
     - @user.projects.each do |project|
-      h4= link_to project.name, project
-      p= project.description
+      = render project

@@ -1,4 +1,2 @@
-- cache idea, expires_in: 10.minutes do
-  .panel.panel-primary
-    .panel-heading= idea.name
-    .panel-body= idea.description
+/ - cache idea, expires_in: 10.minutes do
+= react_component('IdeaCard', render(partial: 'ideas/idea.json.jbuilder', locals: {idea: idea}))

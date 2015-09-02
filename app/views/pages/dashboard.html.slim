@@ -4,11 +4,9 @@ h1 DASHBOARD
   .col-xs-12.col-md-6
     h2 Ideas
     - Idea.all.each do |idea|
-      h4= link_to idea.name, idea
-      p= idea.description
+      = render idea
 
   .col-xs-12.col-md-6
     h2 Projects
     - Project.all.each do |project|
-      h4= link_to project.name, project
-      p= project.description
+      = render project

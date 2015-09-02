@@ -19,6 +19,11 @@ gem 'awesome_print'
 gem 'enumerize'
 gem 'faker'
 
+gem 'acts_as_votable', '~> 0.10.0'
+gem 'react-rails', '~> 1.0'
+
+gem 'jbuilder'
+
 gem 'figaro'
 gem 'redcarpet'
 gem 'albino'
