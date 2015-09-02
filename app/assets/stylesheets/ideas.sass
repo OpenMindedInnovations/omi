@@ -1,35 +1,49 @@
-$voting-width: 5rem
-
 .idea
-  position: relative
-  margin-bottom: 3rem
+  margin-bottom: 2rem
   cursor: pointer
   padding: 1rem .5rem
+  display: flex
   .idea-voting
-    position: absolute
-    left: .5rem
-    top: 1rem
-    width: $voting-width
+    order: 1
+    padding: 2rem
     text-align: center
 
     .idea-upvote
-      color: $darker-grey
+      color: $metallic
       cursor: pointer
       i
         font-size: 3rem
 
       &:hover
-        color: darken($darker-grey, 10%)
+        color: $metallic
 
       &.upvoted
         color: $blue
 
   .idea-details
-    padding-left: $voting-width
+    order: 2
     h4
       margin-top: 0
 
+    .idea-tags-holder
+      margin-bottom: 0
+      .idea-tag
+        color: $metallic
+        paddin: .2rem
+        span
+          border: 2px solid $metallic
+          font-size: 1rem
+          padding: .3rem
+          border-radius: .5rem
+
+  .idea-comments
+    order: 3
+    margin-left: auto
+    padding-right: .5rem
+    i
+      font-size: 2rem
+      color: $metallic
 
   &:hover
-    background: darken($grey, 5%)
+    background: $grey
     border-radius: $border-radius-base
