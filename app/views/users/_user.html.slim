@@ -1,1 +1,1 @@
-li= link_to user.full_name, user_path(user)
+= react_component('UserCard', render(partial: 'users/user.json.jbuilder', locals: {user: user}))
