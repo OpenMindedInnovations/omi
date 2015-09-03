@@ -1,4 +1,4 @@
-{div, a, h4, ul, li, span, p, textarea, i} = React.DOM
+{div, img, a, h1, h2, h3, h4, h5, h6, p, b, span, section, article, nav, aside, i, input, form, select, option, textarea, table, th, tr, td, thead, tbody} = React.DOM
 
 window.IdeaCard = React.createClass
   getInitialState: ->
@@ -17,19 +17,21 @@ window.IdeaCard = React.createClass
     e.stopPropagation()
 
   render: ->
-    vote_classes = 'idea-upvote'
+    vote_classes = 'fa fa-caret-up upvote-icon'
     vote_classes += ' upvoted' if @state.current_user_vote
 
     div onClick: @onIdeaCardClick, className: 'idea',
-      div className: 'idea-voting',
-        a onClick: @onUpvote, className: vote_classes,
-          i className: 'fa fa-caret-up'
+      div onClick: @onUpvote, className: 'idea-voting',
+        i className: vote_classes
         p {}, @state.votes
+
       div className: 'idea-details',
         h4 {}, @props.name
         p {}, @props.description
-        div className: 'idea-tags-holder',
-          div className: 'idea-tag',
-            p: "fake tag"
+        div className: 'tags',
+          # a className: 'label label-primary',
+          #   "fake tag"
+          a className: 'btn btn-primary btn-xs', 'Fake Tag'
+
       div className: 'idea-comments',
         i className: 'fa fa-commenting-o'

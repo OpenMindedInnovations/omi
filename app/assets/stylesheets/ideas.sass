@@ -1,18 +1,19 @@
 .idea
+  display: flex
   margin-bottom: 2rem
   cursor: pointer
-  padding: 1rem .5rem
-  display: flex
+  padding: 1rem 1rem 1rem 0
+  border-radius: $border-radius-base
+  &:hover
+    background: $grey
+
   .idea-voting
-    order: 1
     padding: 2rem
     text-align: center
 
-    .idea-upvote
+    .upvote-icon
       color: $metallic
-      cursor: pointer
-      i
-        font-size: 3rem
+      font-size: 3rem
 
       &:hover
         color: $metallic
@@ -21,31 +22,11 @@
         color: $blue
 
   .idea-details
-    order: 2
     h4
       margin-top: 0
 
-    .idea-tags-holder
-      margin-bottom: 0
-      .idea-tag
-        //TODO: replace static with dynamic
-        color: $metallic
-        paddin: .2rem
-        span
-          border: 2px solid $metallic
-          font-size: 1rem
-          padding: .3rem
-          border-radius: .5rem
-
   .idea-comments
     //TODO: link to messaging
-    order: 3
-    margin-left: auto
-    padding-right: .5rem
     i
       font-size: 2rem
       color: $metallic
-
-  &:hover
-    background: $grey
-    border-radius: $border-radius-base
