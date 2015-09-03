@@ -5,6 +5,10 @@ class BlogsController < ApplicationController
   def index
     @blogs = Blog.all
 
+    if params[:tags].present?
+      @blogs = @blogs.tagged_with(params[:tags].split('/'), wild: true)
+    end
+    
     @blogs = @blogs.order('created_at DESC').paginate(:page => params[:page])
   end
 

@@ -11,7 +11,11 @@ OMI::Application.routes.draw do
 
   root "pages#home"
 
-  resources :blogs
+  resources :blogs do
+    collection do
+      get 'tags/*tags', to: 'blogs#index', as: :tag
+    end
+  end
   resources :projects do
     member do
       put :toggle_favorite

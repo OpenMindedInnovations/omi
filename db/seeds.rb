@@ -6,94 +6,112 @@ b3 = Blog.create!(author: 'Blaine Hatab', title: 'Video blog', embed_id: 'MGsalg
 
 b4 = Blog.create!(author: 'Ken Miyamoto', title: 'Video blog with content', embed_id: 'MGsalg2f9js', content: "This is a quick introduction to show you how to setup react native. Quick note, I had to restart my computer after installing watchman for it to work. I'm not 100% sure why, but it worked after restarting my computer. \r\n\r\n### Install libraries\r\n\r\n```\r\nbrew install node\r\n\r\nbrew install watchman\r\n\r\nnpm install -g react-native-cli\r\n```\r\n\r\n### Create and start project\r\n\r\n```\r\nreact-native init ExampleReactNative\r\n\r\ncd ExampleReactNative\r\n\r\nnpm start\r\n```\r\n\r\n### Launch IOS simulator\r\nLaunch Xcode, open up the project you just created, and run the project. You should see an IOS simulator pop up and now you can see the app you just created. Xcode is simply there to run the simulator and you aren't going to be using it to edit any code. Use a standard IDE or text editor to change the code. Press CMD+R on the IOS simulator to see your changes take place.\r\n\r\nNow you're ready to make phone apps!\r\n\r\n### Links\r\nReact Native: http://facebook.github.io/react-native/\r\n\r\nReact: http://facebook.github.io/react/")
 
-t1 = Tag.create!(name: 'screencast')
-t2 = Tag.create!(name: 'rails')
-t3 = Tag.create!(name: 'ruby')
-t4 = Tag.create!(name: 'HTML')
-t5 = Tag.create!(name: 'CSS')
-t6 = Tag.create!(name: 'vlog')
+b5 = Blog.create!(author: 'Blaine Hatab', title: 'Tag Tester', content: "This is a quick introduction to show you how to setup react native. Quick note, I had to restart my computer after installing watchman for it to work. I'm not 100% sure why, but it worked after restarting my computer. \r\n\r\n### Install libraries\r\n\r\n```\r\nbrew install node\r\n\r\nbrew install watchman\r\n\r\nnpm install -g react-native-cli\r\n```\r\n\r\n### Create and start project\r\n\r\n```\r\nreact-native init ExampleReactNative\r\n\r\ncd ExampleReactNative\r\n\r\nnpm start\r\n```\r\n\r\n### Launch IOS simulator\r\nLaunch Xcode, open up the project you just created, and run the project. You should see an IOS simulator pop up and now you can see the app you just created. Xcode is simply there to run the simulator and you aren't going to be using it to edit any code. Use a standard IDE or text editor to change the code. Press CMD+R on the IOS simulator to see your changes take place.\r\n\r\nNow you're ready to make phone apps!\r\n\r\n### Links\r\nReact Native: http://facebook.github.io/react-native/\r\n\r\nReact: http://facebook.github.io/react/")
 
-b1.tags << t3
-b1.tags << t2
-
-b2.tags << t4
-b2.tags << t5
-
-b3.tags << t1
-b3.tags << t2
-b3.tags << t3
-b3.tags << t6
+t1 = 'screencast'
+t1a = 'Screencast'
+t2 = 'rails'
+t3 = 'ruby'
+t4 = 'HTML'
+t5 = 'CSS'
+t5a = 'css'
+t6 = 'vlog'
+t6a = 'Vlog'
 
 
-b4.tags << t1
-b4.tags << t2
-b4.tags << t4
-b4.tags << t5
-b4.tags << t6
+b1.tag_list.add([t1, t2])
+b1.save
 
+b2.tag_list.add([t4, t5])
+b2.save
 
-user1 = User.new(email: 'greg@greg.com', first_name: 'greg', last_name: 'guy', password: 'asdfasdf', password_confirmation: 'asdfasdf')
-user2 = User.new(email: 'steve@steve.com', first_name: 'steve', last_name: 'guy', password: 'asdfasdf', password_confirmation: 'asdfasdf')
-user3 = User.new(email: 'jj@jj.com', first_name: 'jj', last_name: 'guy', password: 'asdfasdf', password_confirmation: 'asdfasdf')
+b3.tag_list.add([t1, t2, t3, t6, t6a])
+b3.save
 
-user1.skip_confirmation!
-user2.skip_confirmation!
-user3.skip_confirmation!
+b4.tag_list.add([t1, t2, t4, t5, t6])
+b4.save
 
-user1.save!
-user2.save!
-user3.save!
+b5.tag_list.add([t1a, t3, t5, t5a, t6])
+b5.save
+
+u1 = User.new(email: 'greg@greg.com', first_name: 'greg', last_name: 'guy', password: 'asdfasdf', password_confirmation: 'asdfasdf')
+u2 = User.new(email: 'steve@steve.com', first_name: 'steve', last_name: 'guy', password: 'asdfasdf', password_confirmation: 'asdfasdf')
+u3 = User.new(email: 'jj@jj.com', first_name: 'jj', last_name: 'guy', password: 'asdfasdf', password_confirmation: 'asdfasdf')
+
+u1.skip_confirmation!
+u2.skip_confirmation!
+u3.skip_confirmation!
+
+u1.save!
+u2.save!
+u3.save!
 
 p1 = Project.create!(name: 'Music Festival Nation',
-                     user: user1,
+                     user: u1,
                      category: :product,
                      status: :active,
                      is_public: true,
                      description: 'Music Festival Nation is striving to be your one stop shop for anything and everything music festival related. Find rides, get up to date information, and more!')
 
 p2 = Project.create!(name: 'Find Me in the Clouds',
-                     user: user2,
+                     user: u2,
                      category: :contract,
                      status: :completed,
                      is_public: true,
                      description: 'Mandy Grotie loves to create art that explodes with color! Experience the funky style and passion behind her work.')
 
 p3 = Project.create!(name: 'Hamilton House Education Consulting',
-                     user: user3,
+                     user: u3,
                      category: :contract,
                      status: :completed,
                      is_public: true,
                      description: 'We made a website for this group that helps Chinese studnets get into American and UK universites.')
 
 p4 = Project.create!(name: 'Festy Box',
-                     user: user1,
+                     user: u1,
                      category: :product,
                      status: :active,
                      is_public: true,
                      description: 'Monthly subscription box for festival related goods.')
 
 p5 = Project.create!(name: 'Pin Squad',
-                     user: user2,
+                     user: u2,
                      category: :product,
                      status: :active,
                      is_public: false,
                      description: 'Pin Squad makes custom pins for companies and artists.')
 
-idea1 = Idea.create(name: 'Video Application',
+i1 = Idea.create(name: 'Video Application',
                     description: 'Employers can use this service to create a webpage that applicants can go to. The employers create a list of questions that the applicants answer with video.',
-                    user: user1)
+                    user: u1)
 
-idea2 = Idea.create(name: 'Coding Quizes',
+i2 = Idea.create(name: 'Coding Quizes',
                     description: 'Coders can create quizes relating to a programming topic and other coders vote on them.',
-                    user: user1)
+                    user: u1)
 
-idea3 = Idea.create(name: 'Mentorship platform',
+i3 = Idea.create(name: 'Mentorship platform',
                     description: 'Mentors can create paths with various types of educational resources for students to follow. The students can interact with the mentors.',
-                    user: user2)
+                    user: u2)
 
-idea4 = Idea.create(name: 'Glow in the dark fly strips',
+i4 = Idea.create(name: 'Glow in the dark fly strips',
                     description: 'Disposable glow in the dark fly strips. They would attract bugs better.',
-                    user: user3)
+                    user: u3)
 
 
+u1.favorite_projects << [p1, p2, p3, p4]
+u2.favorite_projects << [p1, p3, p4, p5]
+u3.favorite_projects << [p4, p5]
+
+
+i1.liked_by u1
+i1.liked_by u2
+i1.liked_by u3
+
+i2.liked_by u1
+
+i3.liked_by u1
+i3.liked_by u3
+
+i4.liked_by u1
+i4.liked_by u2
 
