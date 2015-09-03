@@ -1,8 +1,11 @@
 = simple_form_for idea, html: {class: 'idea-form', multipart: true} do |f|
 
-  = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
+  = f.input :user_id, as: :hidden, input_html: { value: idea.user_id.present? ? idea.user_id : current_user.id }
 
   = f.input :name, placeholder: 'Name'
+
+  = f.input :tag_list, label: "Tags", input_html: { value: idea.tag_list.join(','), class: 'select2-tags', data: { placeholder: "Enter tags", saved: idea.tag_list.map{|t| {id:  t, text: t}}.to_json, url: api_v1_tags_search_path }}
+
   = f.input :description, placeholder: 'Enter a description for the idea...'
 
   = f.button :submit

@@ -16,6 +16,7 @@ OMI::Application.routes.draw do
       get 'tags/*tags', to: 'blogs#index', as: :tag
     end
   end
+
   resources :projects do
     member do
       put :toggle_favorite
@@ -23,6 +24,9 @@ OMI::Application.routes.draw do
   end
 
   resources :ideas do
+    collection do
+      get 'tags/*tags', to: 'ideas#index', as: :tag
+    end
     member do
       put :toggle_vote
     end

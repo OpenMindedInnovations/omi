@@ -2,8 +2,14 @@
 - description @idea.description
 
 .row
-  .col-xs-12.col-md-6
-    h1= @idea.name.capitalize
+  .col-xs-12
+    h1
+      = @idea.name.capitalize
+      - if is_admin or current_user.id == @idea.user_id
+      = link_to 'Edit', edit_idea_path(@idea), class: 'btn btn-success pull-right'
+
+    p= @idea.description
+
     h4= link_to @idea.user.full_name, @idea.user
 
 

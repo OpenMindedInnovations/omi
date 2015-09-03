@@ -5,6 +5,7 @@ module Api
         tags = ActsAsTaggableOn::Tag.where("LOWER(tags.name) ILIKE ?", "%#{params[:search]}%")
                                     .order("name ASC")
                                     .most_used(5)
+
         render json: tags.map { |t| {id: t.name, text: t.name} }
       end
     end

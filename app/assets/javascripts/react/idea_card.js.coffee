@@ -29,7 +29,9 @@ window.IdeaCard = React.createClass
         h4 {}, @props.name
         p {}, @props.description
         div className: 'tags',
-          a className: 'btn btn-primary btn-xs', 'Fake Tag'
+          @props.tags.map (tag)=>
+            a href: Routes.tag_ideas_path(tag), className: 'btn btn-primary btn-xs',
+              tag
 
       div className: 'idea-comments',
         i className: 'fa fa-commenting-o'

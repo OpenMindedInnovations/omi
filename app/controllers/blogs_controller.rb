@@ -9,7 +9,7 @@ class BlogsController < ApplicationController
       @blogs = @blogs.tagged_with(params[:tags].split('/'), wild: true)
     end
     
-    @blogs = @blogs.order('created_at DESC').paginate(:page => params[:page])
+    @blogs = @blogs.order(created_at: :desc).paginate(:page => params[:page])
   end
 
   def new

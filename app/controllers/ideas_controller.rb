@@ -4,6 +4,12 @@ class IdeasController < ApplicationController
 
   def index
     @ideas = Idea.all
+
+    if params[:tags].present?
+      @ideas = @ideas.tagged_with(params[:tags].split('/'), wild: true)
+    end
+
+    @ideas = @ideas.order(cached_votes_up: :desc)
   end
 
   def new 
@@ -54,7 +60,8 @@ class IdeasController < ApplicationController
       params.require(:idea).permit(
         :user_id,
         :name,
-        :description
+        :description,
+        :tag_list
       )
     end
 

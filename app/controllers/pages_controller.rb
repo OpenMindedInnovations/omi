@@ -13,6 +13,8 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @ideas = Idea.all.order(cached_votes_up: :desc)
+    @projects = Project.all.order(created_at: :desc)
     render layout: 'application'
   end
 end
