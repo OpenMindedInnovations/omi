@@ -8,6 +8,6 @@
   .tags
     = raw blog.tags.map { |t| link_to t.name, tag_blogs_path(t.name), class: 'btn btn-primary btn-xs'}.join('')
 
-  - if is_admin
-    = link_to 'edit', edit_blog_path(blog), class: 'btn btn-danger btn-xs'
-    = link_to 'Delete', blog, class: 'btn btn-danger btn-xs', method: :delete, data: {confirm: 'Are you sure?'}
+    - if is_admin
+      = link_to 'edit', edit_blog_path(blog), class: 'btn btn-danger btn-xs'
+      = link_to 'Delete', blog, class: 'btn btn-danger btn-xs', method: :delete, data: {confirm: 'Are you sure?'}

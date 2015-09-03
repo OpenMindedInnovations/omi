@@ -2,7 +2,8 @@
 
   = f.input :title
   = f.input :author
-  = f.input :tag_list
+  = f.input :tag_list, label: "Tags", input_html: { value: blog.tag_list.join(','), data: { placeholder: "Enter tags",  saved: blog.tag_list.map{|t| {id:  t, text: t}}.to_json, url: api_v1_tags_search_path }}
+
   = f.input :embed_id
   = f.input :content
 

@@ -9,6 +9,7 @@ module OMI
     config.sass.preferred_syntax = :sass
 
     ActsAsTaggableOn.force_lowercase = true
+    ActsAsTaggableOn.remove_unused_tags = true
 
     config.to_prepare do
       Devise::SessionsController.layout 'landing'

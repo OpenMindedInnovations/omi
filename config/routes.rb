@@ -35,4 +35,11 @@ OMI::Application.routes.draw do
 
   resources :users, only: [:index, :show]
 
+  namespace :api, defaults: {format: 'json'} do
+    namespace :v1 do
+      namespace :tags do
+        get '/search' => '/api/v1/tags#search'
+      end
+    end
+  end
 end

@@ -26,7 +26,12 @@ gem 'simple_form', github: 'plataformatec/simple_form'
 # User authentication
 gem 'devise'
 
+gem "select2-rails"
+
+# Better 'puts' messages with 'ap'
 gem 'awesome_print'
+
+# Enumerated attributes
 gem 'enumerize'
 
 # Fake data

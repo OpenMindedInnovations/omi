@@ -4,7 +4,7 @@ class Blog < ActiveRecord::Base
 
   acts_as_taggable
 
-  validates_presence_of :title
+  validates_presence_of :title, :content
 
   self.per_page = 6
 end

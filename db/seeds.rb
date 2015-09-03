@@ -36,7 +36,7 @@ b5.save
 
 u1 = User.new(email: 'greg@greg.com', first_name: 'greg', last_name: 'guy', password: 'asdfasdf', password_confirmation: 'asdfasdf')
 u2 = User.new(email: 'steve@steve.com', first_name: 'steve', last_name: 'guy', password: 'asdfasdf', password_confirmation: 'asdfasdf')
-u3 = User.new(email: 'jj@jj.com', first_name: 'jj', last_name: 'guy', password: 'asdfasdf', password_confirmation: 'asdfasdf')
+u3 = User.new(email: 'jj@jj.com', admin: true, first_name: 'jj', last_name: 'guy', password: 'asdfasdf', password_confirmation: 'asdfasdf')
 
 u1.skip_confirmation!
 u2.skip_confirmation!
