@@ -29,8 +29,6 @@ window.IdeaCard = React.createClass
         h4 {}, @props.name
         p {}, @props.description
         div className: 'tags',
-          # a className: 'label label-primary',
-          #   "fake tag"
           a className: 'btn btn-primary btn-xs', 'Fake Tag'
 
       div className: 'idea-comments',

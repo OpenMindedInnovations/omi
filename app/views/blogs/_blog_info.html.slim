@@ -1,0 +1,13 @@
+.blog-info
+  span.author-info
+    | By 
+    = blog.author
+    |  | 
+    = blog.created_at.strftime("%B %d, %Y")
+     
+  .tags
+    = raw blog.tags.map(&:name).map { |t| link_to t, tag_path(t), class: 'btn btn-primary btn-xs'}.join('')
+
+  - if is_admin
+    = link_to 'edit', edit_blog_path(blog), class: 'btn btn-danger btn-xs'
+    = link_to 'Delete', blog, class: 'btn btn-danger btn-xs', method: :delete, data: {confirm: 'Are you sure?'}

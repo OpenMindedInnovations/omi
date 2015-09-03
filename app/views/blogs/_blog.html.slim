@@ -1,7 +1,6 @@
-.blog{class: ('video-blog' unless blog.embed_id.blank?)}
-  %header.blog-header
-    %h2
-      = link_to blog.title, blog_path(blog)
+.blog class=('video-blog' unless blog.embed_id.blank?)
+  header.blog-header
+    h2= link_to blog.title, blog_path(blog)
     = render 'blogs/blog_info', blog: blog
   
   - unless blog.embed_id.blank?

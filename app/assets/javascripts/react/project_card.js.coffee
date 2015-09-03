@@ -7,32 +7,28 @@ window.ProjectCard = React.createClass
 
   render: ->
     div onClick: @onProjectCardClick, className: 'project',
-      div className: 'project-image',
-        if @props.image["image"]["url"] == null
-          img src: '/images/placeholder.png'
-        else
-          img src: @props.image["image"]["url"]
-
       div className: 'project-title',
         h4 {}, @props.name
 
-      div className: 'project-description',
+      if @props.image["image"]["url"] == null
+        img className: 'project-image', src: '/assets/placeholder.png'
+      else
+        img className: 'project-image', src: @props.image["image"]["url"]
+
+      div className: 'project-details',
         p {}, @props.description
 
-      div className: 'project-activities',
-        div className: 'project-status',
-          span {}, @props.status
+        div className: 'project-activities',
+          div className: 'tags',
+            a className: 'btn btn-success btn-xs', @props.status
 
-        div className: 'project-members-count',
-          i className: 'fa fa-user'
-          span {}, "42"
+          div className: 'tags',
+            a className: 'btn btn-primary btn-xs', 'Fake Tag'
 
-        div className: 'project-favorite',
-          i className: 'fa fa-heart-o'
+          div className: 'project-favorite',
+            i className: 'fa fa-heart'
 
-        # div className: 'tags',
-        #   a className: 'btn btn-primary btn-xs', 'Fake Tag'
+          div className: 'project-members-count',
+            i className: 'fa fa-user'
+            span {}, "42"
 
-        div className: 'project-tags',
-          div className: 'project-tag',
-            span {}, "fake tag"

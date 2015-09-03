@@ -205,8 +205,6 @@ GEM
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     google-analytics-rails (0.0.6)
-    haml (4.0.7)
-      tilt
     i18n (0.7.0)
     inflecto (0.0.2)
     ipaddress (0.8.0)
@@ -229,6 +227,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    markable (0.1.4)
+      rails (>= 3.1)
     memcachier (0.0.2)
     meta-tags (2.0.0)
       actionpack (>= 3.0.0)
@@ -351,11 +351,11 @@ DEPENDENCIES
   fog
   friendly_id (~> 5.0.0)
   google-analytics-rails
-  haml
   jbuilder
   jquery-rails
   js-routes
   letter_opener
+  markable
   memcachier
   meta-tags
   mini_magick
