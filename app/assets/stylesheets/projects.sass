@@ -3,21 +3,82 @@
     min-height: 20rem
 
 .project
-  margin-bottom: 1rem
+  display: flex
+  flex-direction: column
+  position: relative
   box-shadow: 1px 1px 3px $darker-grey
-  border-radius: $border-radius-base
-  overflow: hidden
+  margin: 1rem .5rem
   cursor: pointer
 
+  .project-image
+    min-height: 6rem    //TODO: once we have placeholder image take this out
+    img
+      order: 1
+      position: relative
+      width: 100%
+
   .project-title
-    border: 1px solid darken($grey, 5%)
-    border-top: 0px
+    background: rgba(1,1,1,0.7)
+    position: absolute
+    top: 0
+    right: 0
+    left: 0
     h4
+      color: white
+      font-size: 3rem
       text-align: center
-      margin: 0
       a
         line-height: 60px
 
-  .project-image img
-    border-bottom: 1px solid darken($grey, 5%)
-    max-width: 100%
+  .project-description
+    padding: 1rem
+
+  .project-collaborators
+    //TODO: generate members thumb images here
+
+  .project-activities
+    display: flex
+    flex-direction: row
+    align-items: center
+
+    .project-status
+      //TODO: replace static with dynamic
+      order: 1
+      padding: 0.2rem
+      margin: 1rem
+      span
+        font-size: 1.2rem
+        padding: 0.3rem
+        border-radius: 0.5rem
+        background-color: #27C70A
+        font-weight: 400
+        color: white
+
+    .project-members-count
+      //TODO: replace static with dynamic
+      order: 2
+      font-size: 1.8rem
+      div
+        margin: 0 1rem
+        span
+          margin: 0 1rem
+
+    .project-favorite
+      //TODO: replace static with dynamic
+      order: 3
+      div
+      font-size: 1.8rem
+
+    .project-tags
+      order: 4
+      .project-tag
+        //TODO: replace static with dynamic
+        color: $metallic
+        paddin: .2rem
+        span
+          border: 2px solid $metallic
+          font-size: 1rem
+          padding: .3rem
+          border-radius: .5rem
+          margin: 0 1rem
+

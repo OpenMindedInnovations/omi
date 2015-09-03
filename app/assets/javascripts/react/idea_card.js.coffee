@@ -23,8 +23,13 @@ window.IdeaCard = React.createClass
     div onClick: @onIdeaCardClick, className: 'idea',
       div className: 'idea-voting',
         a onClick: @onUpvote, className: upvote_classes,
-          i className: 'fa fa-arrow-circle-up'
+          i className: 'fa fa-caret-up'
         p {}, @state.upvotes
       div className: 'idea-details',
         h4 {}, @props.name
         p {}, @props.description
+        div className: 'idea-tags-holder',
+          div className: 'idea-tag',
+            p: "fake tag"
+      div className: 'idea-comments',
+        i className: 'fa fa-commenting-o'
