@@ -2,7 +2,7 @@ class Project < ActiveRecord::Base
   extend Enumerize
   extend FriendlyId
 
-  acts_as_taggable
+  acts_as_taggable_on :tags
 
   markable_as :favorite
 
