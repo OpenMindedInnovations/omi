@@ -8,9 +8,12 @@ window.ProjectCard = React.createClass
   render: ->
     div onClick: @onProjectCardClick, className: 'project',
       div className: 'project-image',
-        img src: @props.image["image"]["url"],
-          div className: 'project-title',
-            h4 {}, @props.name,
+      if @props.image["image"]["url"] == null
+        img src: '/images/placeholder.png'
+      else
+        img src: @props.image["image"]["url"]
+      div className: 'project-title',
+        h4 {}, @props.name,
       div className: 'project-description',
         p {}, @props.description,
       div className: 'project-collaborators',
