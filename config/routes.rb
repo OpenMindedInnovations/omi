@@ -17,7 +17,7 @@ OMI::Application.routes.draw do
   resources :projects
   resources :ideas do
     member do
-      put :upvote
+      put :toggle_vote
     end
   end
 
