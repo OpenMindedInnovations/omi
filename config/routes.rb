@@ -11,8 +11,6 @@ OMI::Application.routes.draw do
 
   root "pages#home"
 
-  get 'tags/:tag', to: 'blogs#index', as: :tag
-
   resources :blogs
   resources :projects do
     member do

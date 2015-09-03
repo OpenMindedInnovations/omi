@@ -1,12 +1,14 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 4.2.4'
-gem 'sqlite3', group: :development
 gem 'slim-rails'
 gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
+
+# Database
+gem 'pg'
 
 # gem 'turbolinks'
 
@@ -15,6 +17,8 @@ gem 'js-routes'
 
 # Bootstrap (CSS framework)
 gem 'bootstrap-sass', '~> 3.3.5'
+
+gem 'acts-as-taggable-on', '~> 3.4'
 
 # Better rails forms
 gem 'simple_form', github: 'plataformatec/simple_form'
@@ -60,9 +64,6 @@ gem 'will_paginate-foundation'
 
 # For heroku
 gem 'rails_12factor', group: :production
-
-# Database
-gem 'pg', group: :production
 
 # Meta tags (SEO)
 gem 'meta-tags'
