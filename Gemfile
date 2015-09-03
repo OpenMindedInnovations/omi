@@ -30,7 +30,7 @@ gem 'faker'
 
 # Voting and favoriting
 gem 'acts_as_votable', '~> 0.10.0'
-gem 'markable'
+gem 'markable', github: 'chrome/markable'
 
 # React for rails
 gem 'react-rails', '~> 1.0'

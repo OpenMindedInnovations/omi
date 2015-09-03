@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_user!, except: [:work, :products]
-  before_filter :get_project, only: [:show, :edit, :update, :destroy, :work_show, :products_show]
+  before_filter :get_project, only: [:show, :edit, :update, :destroy, :work_show, :products_show, :toggle_favorite]
 
   def index
     @projects = Project.all
@@ -32,6 +32,16 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+  end
+
+  def toggle_favorite
+    if @project.marked_as?(:favorite, by: current_user)
+      @project.unmark :favorite, by: current_user
+      render json: { favorites: @project.users_have_marked_as_favorite.size, current_user_favorite: @project.marked_as?(:favorite, by: current_user) }
+    else
+      current_user.favorite_projects << @project
+      render json: { favorites: @project.users_have_marked_as_favorite.size, current_user_favorite: @project.marked_as?(:favorite, by: current_user) }
+    end
   end
 
   def create

@@ -1,11 +1,25 @@
 {div, img, a, h1, h2, h3, h4, h5, h6, p, b, span, section, article, nav, aside, i, input, form, select, option, textarea, table, th, tr, td, thead, tbody} = React.DOM
 
 window.ProjectCard = React.createClass
+  getInitialState: ->
+    favorites: @props.favorites
+    current_user_favorite: @props.current_user_favorite
 
   onProjectCardClick: ->
     window.location = Routes.project_path(@props.id)
 
+  onFavorite: (e)->
+    $.ajax
+      url: Routes.toggle_favorite_project_path(@props.id)
+      type: 'PUT'
+      success: (response)=>
+        @setState(favorites: response.favorites, current_user_favorite: response.current_user_favorite)
+    e.stopPropagation()
+
   render: ->
+    favorite_classes = 'project-favorite'
+    favorite_classes += ' highlighted' if @state.current_user_favorite
+
     div onClick: @onProjectCardClick, className: 'project',
       div className: 'project-title',
         h4 {}, @props.name
@@ -25,10 +39,10 @@ window.ProjectCard = React.createClass
           div className: 'tags',
             a className: 'btn btn-primary btn-xs', 'Fake Tag'
 
-          div className: 'project-favorite',
+          div onClick: @onFavorite, className: favorite_classes,
             i className: 'fa fa-heart'
 
           div className: 'project-members-count',
             i className: 'fa fa-user'
-            span {}, "42"
+            span {}, @state.favorites
 

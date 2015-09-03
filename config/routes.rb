@@ -14,7 +14,12 @@ OMI::Application.routes.draw do
   get 'tags/:tag', to: 'blogs#index', as: :tag
 
   resources :blogs
-  resources :projects
+  resources :projects do
+    member do
+      put :toggle_favorite
+    end
+  end
+
   resources :ideas do
     member do
       put :toggle_vote

@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/chrome/markable.git
+  revision: 6fece7b200e339b87e2abf3cad190ab10966e04b
+  specs:
+    markable (0.1.4)
+      rails (>= 3.1)
+
+GIT
   remote: git://github.com/plataformatec/simple_form.git
   revision: eac1e0108e6c95e291c2065e7005e0cbcb4c2bac
   specs:
@@ -227,8 +234,6 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    markable (0.1.4)
-      rails (>= 3.1)
     memcachier (0.0.2)
     meta-tags (2.0.0)
       actionpack (>= 3.0.0)
@@ -355,7 +360,7 @@ DEPENDENCIES
   jquery-rails
   js-routes
   letter_opener
-  markable
+  markable!
   memcachier
   meta-tags
   mini_magick

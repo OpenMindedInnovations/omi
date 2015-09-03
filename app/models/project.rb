@@ -2,6 +2,8 @@ class Project < ActiveRecord::Base
   extend Enumerize
   extend FriendlyId
 
+  markable_as :favorite
+
   belongs_to :user
 
   friendly_id :name, use: [:slugged, :finders]

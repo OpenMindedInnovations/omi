@@ -17,7 +17,7 @@ class IdeasController < ApplicationController
   end
 
   def toggle_vote
-    if  current_user.voted_up_on?(@idea)
+    if current_user.voted_up_on?(@idea)
       @idea.unliked_by current_user
       render json: { votes: @idea.votes_for.size, current_user_vote: current_user.voted_up_on?(@idea) }
     else

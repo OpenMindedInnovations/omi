@@ -18,7 +18,7 @@ window.IdeaCard = React.createClass
 
   render: ->
     vote_classes = 'fa fa-caret-up upvote-icon'
-    vote_classes += ' upvoted' if @state.current_user_vote
+    vote_classes += ' highlighted' if @state.current_user_vote
 
     div onClick: @onIdeaCardClick, className: 'idea',
       div onClick: @onUpvote, className: 'idea-voting',
