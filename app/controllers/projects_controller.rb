@@ -4,6 +4,12 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
+
+    ap params
+    
+    if params[:tags].present?
+      @projects = @projects.tagged_with(params[:tags].split('/'), wild: true)
+    end
   end
 
   def work
@@ -74,6 +80,7 @@ class ProjectsController < ApplicationController
         :description,
         :category,
         :status,
+        :tag_list,
         :image
       )
     end

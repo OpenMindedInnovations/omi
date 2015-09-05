@@ -18,6 +18,9 @@ OMI::Application.routes.draw do
   end
 
   resources :projects do
+    collection do
+      get 'tags/*tags', to: 'projects#index', as: :tag
+    end
     member do
       put :toggle_favorite
     end

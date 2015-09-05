@@ -1,8 +1,15 @@
 = simple_form_for project, html: {class: 'project-form', multipart: true} do |f|
 
   = f.input :name
+
   = f.input :description
+  
   = f.input :category, prompt: 'Select Category'
+  
   = f.input :status, selected: :new
+
+  = f.input :tag_list, label: "Tags", input_html: { value: project.tag_list.join(','), class: 'select2-tags', data: { placeholder: "Enter tags", saved: project.tag_list.map{|t| {id:  t, text: t}}.to_json, url: api_v1_tags_search_path }}
+  
   = f.file_field :image
+  
   = f.button :submit

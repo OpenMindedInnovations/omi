@@ -37,7 +37,10 @@ window.ProjectCard = React.createClass
             a className: 'btn btn-success btn-xs', @props.status
 
           div className: 'tags',
-            a className: 'btn btn-primary btn-xs', 'Fake Tag'
+            console.log(@props.tag_list)
+            @props.tag_list.map (tag)=>
+              a href: Routes.tag_projects_path(tag), className: 'btn btn-primary btn-xs',
+                tag
 
           div onClick: @onFavorite, className: favorite_classes,
             i className: 'fa fa-heart'
