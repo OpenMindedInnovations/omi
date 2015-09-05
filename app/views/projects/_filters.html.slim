@@ -5,7 +5,7 @@
     - if tag_params.present? && tag_params.downcase.split('/').include?(tag.downcase) && tag_params.split('/').length > 1
       = link_to tag, tag_projects_path((tag_params.split('/') - [tag]).join('/')), class: 'btn btn-success'
     - elsif tag_params.present? && tag_params.downcase.split('/').include?(tag.downcase)
-      = link_to tag, ideas_path(), class: 'btn btn-success'
+      = link_to tag, projects_path(), class: 'btn btn-success'
     - elsif tag_params.present? && !tag_params.downcase.split('/').include?(tag.downcase)
       = link_to tag, tag_projects_path(tag_params + "/#{tag}"), class: 'btn btn-default'
     - else
