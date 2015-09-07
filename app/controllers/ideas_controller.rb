@@ -10,18 +10,21 @@ class IdeasController < ApplicationController
     end
 
     # @ideas = @ideas.order(cached_votes_up: :desc)
-    
-    if params[:sort] == "oldest"
-      @ideas = @ideas.order(created_at: :asc)
-    elsif params[:sort] == "newest"
-      @ideas = @ideas.order(created_at: :desc)
+    if params[:sort].present?
+      @ideas = @ideas.sort_filter(params[:sort])
     end
 
-    if params[:votes] == "up"
-      @ideas = @ideas.order(cached_votes_up: :desc)
-    elsif params[:votes] == "down"
-      @ideas = @ideas.order(cached_votes_up: :asc)
-    end
+    # if params[:votes] == "up"
+    #   @ideas = @ideas.order(cached_votes_up: :desc)
+    # elsif params[:votes] == "down"
+    #   @ideas = @ideas.order(cached_votes_up: :asc)
+    # end
+
+    # if params[:sort] == "oldest"
+    #   @ideas = @ideas.order(created_at: :asc)
+    # elsif params[:sort] == "newest"
+    #   @ideas = @ideas.order(created_at: :desc)
+    # end
   end
 
   def new 
