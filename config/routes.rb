@@ -40,7 +40,8 @@ OMI::Application.routes.draw do
   get 'products', to: 'projects#products', as: :products
   get 'products/:id', to: 'projects#products_show', as: :products_show
 
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show, :update]
+  get 'my-account' => 'users#edit'
 
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
