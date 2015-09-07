@@ -1,4 +1,66 @@
 .filters
+
+  - sort_new = { sort: "newest" }
+  - sort_old = { sort: "oldest"}
+  - votes_up = { votes: "up" }
+  - votes_down = { votes: "down" }
+  - success = {}
+  - btn_inactive = { class: 'btn btn-default' }
+  - btn_success = { class: 'btn btn-success' }
+
+  - if params[:sort] == nil && params[:votes] == nil
+    = link_to "newest", sort_new, btn_inactive
+    = link_to "oldest", sort_old, btn_inactive
+    = link_to "most votes", votes_up, btn_inactive
+    = link_to "least votes", votes_down, btn_inactive
+
+  - if params[:sort].present? && params[:votes] == nil
+    - if params[:sort] == "newest"
+      = link_to "newest", success, btn_success
+      = link_to "oldest", sort_old, btn_inactive
+      = link_to "most votes", sort_new.merge(votes_up), btn_inactive
+      = link_to "least votes", sort_new.merge(votes_down), btn_inactive
+    - if params[:sort] == "oldest"
+      = link_to "newest", sort_new, btn_inactive
+      = link_to "oldes", success, btn_success
+      = link_to "most votes", sort_old.merge(votes_up), btn_inactive
+      = link_to "least votes", sort_old.merge(votes_down), btn_inactive
+
+  - if params[:sort] == nil && params[:votes].present?
+    - if params[:votes] == "up"
+      = link_to "newest", sort_new.merge(votes_up), btn_inactive
+      = link_to "oldest", sort_old.merge(votes_up), btn_inactive
+      = link_to "most votes", success, btn_success
+      = link_to "least votes", votes_down, btn_inactive
+    - if params[:votes] == "down"
+      = link_to "newest", sort_new.merge(votes_down), btn_inactive
+      = link_to "oldes", sort_old.merge(votes_down) , btn_inactive
+      = link_to "most votes", votes_up, btn_inactive
+      = link_to "least votes", success, btn_success
+
+  - if params[:sort].present? && params[:votes].present?
+    - if params[:sort] == "newest" && params[:votes] == "up"
+      = link_to "newest", success.merge(votes_up), btn_success
+      = link_to "oldest", sort_old.merge(votes_up), btn_inactive
+      = link_to "most votes", sort_new.merge(success), btn_success
+      = link_to "least votes", sort_new.merge(votes_down), btn_inactive
+    - if params[:sort] == "newest" && params[:votes] == "down"
+      = link_to "newest", success.merge(votes_down), btn_success
+      = link_to "oldest", sort_old.merge(votes_down), btn_inactive
+      = link_to "most votes", sort_new.merge(votes_up), btn_inactive
+      = link_to "least votes", sort_new.merge(success), btn_success
+    - if params[:sort] == "oldest" && params[:votes] == "up"
+      = link_to "newest", sort_new.merge(votes_up), btn_inactive
+      = link_to "oldes", success.merge(votes_up), btn_success
+      = link_to "most votes", sort_old.merge(success), btn_success
+      = link_to "least votes", sort_old.merge(votes_down), btn_inactive
+    - if params[:sort] == "oldest" && params[:votes] == "down"
+      = link_to "newest", sort_new.merge(votes_down), btn_inactive
+      = link_to "oldes", success.merge(votes_down), btn_success
+      = link_to "most votes", votes_up.merge(sort_old), btn_inactive
+      = link_to "least votes", success.merge(sort_old), btn_success
+
+
   - Idea.tag_counts.order(taggings_count: :desc).pluck(:name).each do |tag|
     - tag_params = params[:tags] || ''
 
