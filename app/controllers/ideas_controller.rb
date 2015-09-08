@@ -6,10 +6,9 @@ class IdeasController < ApplicationController
     @ideas = Idea.all
 
     if params[:tags].present?
-      @ideas = @ideas.tagged_with(params[:tags].split('/'), wild: true)
+      @ideas = @ideas.tagged_with(params[:tags].split(' '))
     end
 
-    # @ideas = @ideas.order(cached_votes_up: :desc)
     if params[:sort].present?
       @ideas = @ideas.sort_filter(params[:sort])
     end

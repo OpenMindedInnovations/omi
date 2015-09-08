@@ -1,32 +1,38 @@
-.filters 
+.filters
+
+  - tags_hash = params[:tags].present? ? { tags: params[:tags] } : {}
+  - sorts_hash = params[:sort].present? ? { sort: params[:sort] } : {}
+
   .row
     .col-xs-12
       h4
         b Sorting
-      - links = ['votes up', 'votes down', 'oldest', 'newest']
+      - links = ['votes-up', 'votes-down', 'oldest', 'newest']
       - sort_params = params[:sort]
       - if sort_params.present?
         - links.each do |link|
           - if sort_params == link
-            = link_to "#{link}", {}, { class: 'btn btn-success' }
+            = link_to "#{link}", ideas_path(tags_hash), { class: 'btn btn-success' }
           - else
-            = link_to "#{link}", { sort: "#{link}" }, { class: 'btn btn-default' }
+            = link_to "#{link}", ideas_path(tags_hash.merge(sort: "#{link}")), { class: 'btn btn-default' }
       - else
         - links.each do |link|
-          = link_to "#{link}", { sort: "#{link}" }, { class: 'btn btn-default' }
+          = link_to "#{link}", ideas_path(tags_hash.merge(sort: "#{link}")), { class: 'btn btn-default' }
 
   .row
     .col-xs-12
       h4
         b Tags
+
       - Idea.tag_counts.order(taggings_count: :desc).pluck(:name).each do |tag|
         - tag_params = params[:tags] || ''
-
-        - if tag_params.present? && tag_params.downcase.split('/').include?(tag.downcase) && tag_params.split('/').length > 1
-          = link_to tag, tag_ideas_path((tag_params.split('/') - [tag]).join('/')), class: 'btn btn-success'
-        - elsif tag_params.present? && tag_params.downcase.split('/').include?(tag.downcase)
-          = link_to tag, ideas_path(), class: 'btn btn-success'
-        - elsif tag_params.present? && !tag_params.downcase.split('/').include?(tag.downcase)
-          = link_to tag, tag_ideas_path(tag_params + "/#{tag}"), class: 'btn btn-default'
+        - if tag_params.present? && tag_params.downcase.split(' ').include?(tag.downcase) && tag_params.split(' ').length > 1
+          - links = (tag_params.split(' ') - [tag]).join(' ')
+          = link_to tag, ideas_path({ tags: links }.merge(sorts_hash)), class: 'btn btn-success'
+        - elsif tag_params.present? && tag_params.downcase.split(' ').include?(tag.downcase)
+          = link_to tag, ideas_path({}.merge(sorts_hash)), class: 'btn btn-success'
+        - elsif tag_params.present? && !tag_params.downcase.split(' ').include?(tag.downcase)
+          - links = tag_params + " #{tag}"
+          = link_to tag, ideas_path({ tags: links }.merge(sorts_hash)), class: 'btn btn-default'
         - else
-          = link_to tag, tag_ideas_path(tag), class: 'btn btn-default'
+          = link_to tag, ideas_path({ tags: tag }.merge(sorts_hash)), class: 'btn btn-default'
