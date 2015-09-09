@@ -8,9 +8,9 @@ class Idea < ActiveRecord::Base
 
   def self.sort_filter(sort_param)
     case sort_param
-    when "votes up"
+    when "votes-up"
       order(cached_votes_up: :desc)
-    when "votes down"
+    when "votes-down"
       order(cached_votes_up: :asc)
     when "oldest"
       order(created_at: :asc)
