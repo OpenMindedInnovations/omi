@@ -1,38 +1,33 @@
 .filters
-
-  - tags_hash = params[:tags].present? ? { tags: params[:tags] } : {}
-  - sorts_hash = params[:sort].present? ? { sort: params[:sort] } : {}
-
-  .row
-    .col-xs-12
-      h4
-        b Sorting
-      - links = ['votes-up', 'votes-down', 'oldest', 'newest']
-      - sort_params = params[:sort]
-      - if sort_params.present?
-        - links.each do |link|
-          - if sort_params == link
-            = link_to "#{link}", ideas_path(tags_hash), { class: 'btn btn-success' }
-          - else
-            = link_to "#{link}", ideas_path(tags_hash.merge(sort: "#{link}")), { class: 'btn btn-default' }
-      - else
-        - links.each do |link|
-          = link_to "#{link}", ideas_path(tags_hash.merge(sort: "#{link}")), { class: 'btn btn-default' }
-
+  - sort_params = params[:sort] || ''
+  - tag_params = params[:tags] || ''
+  - sort_links = ['votes-up', 'votes-down', 'oldest', 'newest']
+  - tag_links = Idea.tag_counts.order(taggings_count: :desc).pluck(:name)
+  - filter_params = tag_params.present? ? { tags: tag_params } : {}
+  - tag_params = tag_params.downcase.split
   .row
     .col-xs-12
       h4
         b Tags
-
-      - Idea.tag_counts.order(taggings_count: :desc).pluck(:name).each do |tag|
-        - tag_params = params[:tags] || ''
-        - if tag_params.present? && tag_params.downcase.split(' ').include?(tag.downcase) && tag_params.split(' ').length > 1
-          - links = (tag_params.split(' ') - [tag]).join(' ')
-          = link_to tag, ideas_path({ tags: links }.merge(sorts_hash)), class: 'btn btn-success'
-        - elsif tag_params.present? && tag_params.downcase.split(' ').include?(tag.downcase)
-          = link_to tag, ideas_path({}.merge(sorts_hash)), class: 'btn btn-success'
-        - elsif tag_params.present? && !tag_params.downcase.split(' ').include?(tag.downcase)
-          - links = tag_params + " #{tag}"
-          = link_to tag, ideas_path({ tags: links }.merge(sorts_hash)), class: 'btn btn-default'
+      - tag_links.each do |tag|
+        - if tag_params.include?(tag)
+          - state = tag_params - [tag]
+          - state_params = state.count >= 1 ? { tags: (state.join(' ')) } : {}
+          = link_to "#{tag}", ideas_path(state_params), { class: 'btn btn-success' }
         - else
-          = link_to tag, ideas_path({ tags: tag }.merge(sorts_hash)), class: 'btn btn-default'
+          - state = tag_params + [tag]
+          - state_params = { tags: state.join(' ') }
+          = link_to "#{tag}", ideas_path(state_params), { class: 'btn btn-default' }
+  .row
+    .col-xs-12
+      h4
+        b Sorting
+      - if sort_params.present?
+        - sort_links.each do |link|
+          - if sort_params == link
+            = link_to "#{link}", ideas_path(filter_params), { class: 'btn btn-success' }
+          - else
+            = link_to "#{link}", ideas_path(filter_params.merge(sort: "#{link}")), { class: 'btn btn-default' }
+      - else
+        - sort_links.each do |link|
+          = link_to "#{link}", ideas_path(filter_params.merge(sort: "#{link}")), { class: 'btn btn-default' }
