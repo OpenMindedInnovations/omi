@@ -5,10 +5,12 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.all
 
-    ap params
-    
     if params[:tags].present?
-      @projects = @projects.tagged_with(params[:tags].split('/'), wild: true)
+      @projects = @projects.tagged_with(params[:tags].split(' '))
+    end
+
+    if params[:sort].present?
+      @projects = @projects.sort_filter(params[:sort])
     end
   end
 
