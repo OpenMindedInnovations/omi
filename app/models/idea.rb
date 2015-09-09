@@ -6,6 +6,8 @@ class Idea < ActiveRecord::Base
 
   validates_presence_of :name, :description
 
+  scope :ordered_tags, ->  { tag_counts.order(taggings_count: :desc).pluck(:name).map { |t| t.gsub(" ", "-")} }
+
   def self.sort_filter(sort_param)
     case sort_param
     when "votes-up"

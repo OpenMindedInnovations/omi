@@ -6,7 +6,7 @@ class IdeasController < ApplicationController
     @ideas = Idea.all
 
     if params[:tags].present?
-      @ideas = @ideas.tagged_with(params[:tags].split(' '))
+      @ideas = @ideas.tagged_with(params[:tags].split(' ').map { |t| t.gsub("-", " ")} )
     end
 
     if params[:sort].present?
