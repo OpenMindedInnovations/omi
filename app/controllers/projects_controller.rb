@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
     @projects = Project.all
 
     if params[:tags].present?
-      @projects = @projects.tagged_with(params[:tags].split(' '))
+      @projects = @projects.tagged_with(params[:tags].split(' ').map { |t| t.gsub("-", " ")} )
     end
 
     if params[:sort].present?

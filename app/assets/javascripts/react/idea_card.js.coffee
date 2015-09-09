@@ -30,7 +30,7 @@ window.IdeaCard = React.createClass
         p {}, @props.description
         div className: 'tags',
           @props.tag_list.map (tag)=>
-            a href: "ideas?tags=#{tag}", className: 'btn btn-primary btn-xs',
+            a href: Routes.ideas_path(tags: "#{tag}"), className: 'btn btn-primary btn-xs',
               tag
 
       div className: 'idea-comments',
