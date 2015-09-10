@@ -3,31 +3,36 @@
   - tag_params = params[:tags] || ''
   - sort_links = ['votes-up', 'votes-down', 'oldest', 'newest']
   - tag_links = Idea.ordered_tags
-  - filter_params = tag_params.present? ? { tags: tag_params } : {}
-  - tag_params = tag_params.downcase.split
+  - filter_params = get_filter_params(params)
   .row
     .col-xs-12
       h4
         b Tags
+      - tag_params = tag_params.downcase.split
+      - current_params = filter_params.clone
       - tag_links.each do |tag|
         - if tag_params.include?(tag)
           - state = tag_params - [tag]
-          - state_params = state.count >= 1 ? { tags: (state.join(' ')) } : {}
-          = link_to "#{parse_name(tag)}", ideas_path(state_params), { class: 'btn btn-success' }
+          - if state.empty? ? current_params.delete(:tags) : current_params[:tags] = state.join(' ')
+          = link_to "#{parse_name(tag)}", ideas_path(current_params), { class: 'btn btn-success' }
         - else
           - state = tag_params + [tag]
-          - state_params = { tags: state.join(' ') }
-          = link_to "#{parse_name(tag)}", ideas_path(state_params), { class: 'btn btn-default' }
+          - current_params[:tags] = state.join(' ')
+          = link_to "#{parse_name(tag)}", ideas_path(current_params), { class: 'btn btn-default' }
   .row
     .col-xs-12
       h4
         b Sorting
+      - current_params = filter_params.clone
       - if sort_params.present?
         - sort_links.each do |sort|
           - if sort_params == sort
-            = link_to "#{parse_name(sort)}", ideas_path(filter_params), { class: 'btn btn-success' }
+            - current_params.delete(:sort)
+            = link_to "#{parse_name(sort)}", ideas_path(current_params), { class: 'btn btn-success' }
           - else
-            = link_to "#{parse_name(sort)}", ideas_path(filter_params.merge(sort: "#{sort}")), { class: 'btn btn-default' }
+            - current_params[:sort] = sort
+            = link_to "#{parse_name(sort)}", ideas_path(current_params), { class: 'btn btn-default' }
       - else
         - sort_links.each do |sort|
-          = link_to "#{parse_name(sort)}", ideas_path(filter_params.merge(sort: "#{sort}")), { class: 'btn btn-default' }
+          - current_params[:sort] = sort
+          = link_to "#{parse_name(sort)}", ideas_path(current_params), { class: 'btn btn-default' }
