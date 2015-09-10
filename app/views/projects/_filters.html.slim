@@ -3,6 +3,8 @@
   - tag_params = params[:tags] || ''
   - sort_links = ['most-favorited', 'least-favorited', 'oldest', 'newest']
   - tag_links = Project.ordered_tags
+  - status_links = Project.status_list
+  - sort_links = sort_links + status_links
   - filter_params = tag_params.present? ? { tags: tag_params } : {}
   - tag_params = tag_params.downcase.split
   .row
