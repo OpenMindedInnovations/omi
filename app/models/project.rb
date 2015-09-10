@@ -17,16 +17,27 @@ class Project < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
+  scope :ordered_tags, -> { tag_counts.order(taggings_count: :desc).pluck(:name).map { |t| t.gsub(" ", "-")} }
+
+  scope :status_list, -> { uniq.pluck(:status) }
+
   def self.sort_filter(sort_param)
-    case sort_param
-    when "most-favorites"
-      marked_as_favorite.order(:count).reverse
-    when "least-favorites"
-      marked_as_favorite.order(:count)
-    when "oldest"
-      order(created_at: :asc)
-    when "newest"
-      order(created_at: :desc)
+    status = self.status_list
+    if status.include?(sort_param)
+      where(status: sort_param)
+    else
+      case sort_param
+      when "most-favorited"
+        marked_as_favorite.order(count: :desc)
+      when "least-favorited"
+        marked_as_favorite.order(count: :asc)
+      when "oldest"
+        order(created_at: :asc)
+      when "newest"
+        order(created_at: :desc)
+      else
+        self.none
+      end
     end
   end
 end

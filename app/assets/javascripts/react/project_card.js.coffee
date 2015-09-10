@@ -34,12 +34,13 @@ window.ProjectCard = React.createClass
 
         div className: 'project-activities',
           div className: 'tags',
-            a className: 'btn btn-success btn-xs', @props.status
+            console.log(@props.status)
+            a href: Routes.projects_path(sort: "#{@props.status}"), className: 'btn btn-success btn-xs',
+              @props.status
 
           div className: 'tags',
-            console.log(@props.tag_list)
             @props.tag_list.map (tag)=>
-              a href: "projects?tags=#{tag}", className: 'btn btn-primary btn-xs',
+              a href: Routes.projects_path(tags: "#{tag}"), className: 'btn btn-primary btn-xs',
                 tag
 
           div onClick: @onFavorite, className: favorite_classes,
