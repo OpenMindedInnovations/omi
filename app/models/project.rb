@@ -21,23 +21,27 @@ class Project < ActiveRecord::Base
 
   scope :status_list, -> { uniq.pluck(:status) }
 
-  def self.sort_filter(sort_param)
+  def self.status_filter(status_param)
     status = self.status_list
-    if status.include?(sort_param)
-      where(status: sort_param)
+    if status.include?(status_param)
+      where(status: status_param)
     else
-      case sort_param
-      when "most-favorited"
-        marked_as_favorite.order(count: :desc)
-      when "least-favorited"
-        marked_as_favorite.order(count: :asc)
-      when "oldest"
-        order(created_at: :asc)
-      when "newest"
-        order(created_at: :desc)
-      else
-        self.none
-      end
+      self.none
+    end
+  end
+
+  def self.sort_filter(sort_param)
+    case sort_param
+    when "most-favorited"
+      marked_as_favorite.order(count: :desc)
+    when "least-favorited"
+      marked_as_favorite.order(count: :asc)
+    when "oldest"
+      order(created_at: :asc)
+    when "newest"
+      order(created_at: :desc)
+    else
+      self.none
     end
   end
 end

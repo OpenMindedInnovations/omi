@@ -9,6 +9,10 @@ class ProjectsController < ApplicationController
       @projects = @projects.tagged_with(params[:tags].split(' ').map { |t| t.gsub("-", " ")} )
     end
 
+    if params[:status].present?
+      @projects = @projects.status_filter(params[:status])
+    end
+
     if params[:sort].present?
       @projects = @projects.sort_filter(params[:sort])
     end
