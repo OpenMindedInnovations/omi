@@ -18,6 +18,8 @@ class Idea < ActiveRecord::Base
       order(created_at: :asc)
     when "newest"
       order(created_at: :desc)
+    else
+      self.none
     end
   end
 end

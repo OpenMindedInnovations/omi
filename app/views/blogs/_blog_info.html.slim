@@ -6,7 +6,7 @@
     = blog.created_at.strftime("%B %d, %Y")
      
   .tags
-    = raw blog.tags.map { |t| link_to t.name, tag_blogs_path(t.name), class: 'btn btn-primary btn-xs'}.join('')
+    = raw blog.tags.map { |t| link_to t.name, blogs_path(tags: t.name), class: 'btn btn-primary btn-xs'}.join('')
 
     - if is_admin
       = link_to 'edit', edit_blog_path(blog), class: 'btn btn-danger btn-xs'

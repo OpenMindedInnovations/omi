@@ -1,0 +1,38 @@
+.filters
+  - sort_params = params[:sort] || ''
+  - tag_params = params[:tags] || ''
+  - sort_links = ['oldest', 'newest']
+  - tag_links = Blog.ordered_tags
+  - filter_params = get_filter_params(params)
+  .row
+    .col-xs-12
+      h4
+        b Tags
+      - tag_params = tag_params.downcase.split
+      - current_params = filter_params.clone
+      - tag_links.each do |tag|
+        - if tag_params.include?(tag)
+          - state = tag_params - [tag]
+          - if state.empty? ? current_params.delete(:tags) : current_params[:tags] = state.join(' ')
+          = link_to "#{parse_name(tag)}", blogs_path(current_params), { class: 'btn btn-success' }
+        - else
+          - state = tag_params + [tag]
+          - current_params[:tags] = state.join(' ')
+          = link_to "#{parse_name(tag)}", blogs_path(current_params), { class: 'btn btn-default' }
+  .row
+    .col-xs-12
+      h4
+        b Sorting
+      - current_params = filter_params.clone
+      - if sort_params.present?
+        - sort_links.each do |sort|
+          - if sort_params == sort
+            - current_params.delete(:sort)
+            = link_to "#{parse_name(sort)}", blogs_path(current_params), { class: 'btn btn-success' }
+          - else
+            - current_params[:sort] = sort
+            = link_to "#{parse_name(sort)}", blogs_path(current_params), { class: 'btn btn-default' }
+      - else
+        - sort_links.each do |sort|
+          - current_params[:sort] = sort
+          = link_to "#{parse_name(sort)}", blogs_path(current_params), { class: 'btn btn-default' }
