@@ -6,10 +6,14 @@ class BlogsController < ApplicationController
     @blogs = Blog.all
 
     if params[:tags].present?
-      @blogs = @blogs.tagged_with(params[:tags].split('/'), wild: true)
+      @blogs = @blogs.tagged_with(params[:tags].split(' ').map { |t| t.gsub("-", " ")} )
+    end
+
+    if params[:sort].present?
+      @blogs = @blogs.sort_filter(params[:sort])
     end
     
-    @blogs = @blogs.order(created_at: :desc).paginate(:page => params[:page])
+    @blogs = @blogs.paginate(:page => params[:page])
   end
 
   def new
