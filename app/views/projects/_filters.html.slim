@@ -9,14 +9,14 @@
     .col-xs-12
       h4
         b Tags
-      - filter_section_generate(params, tag_params, tag_links, :tags)
+      - filter_section_generate(tag_params, tag_links, :tags)
   .row
     .col-xs-12
       h4
         b Status
-      - filter_section_generate(params, status_params, status_links, :status)
+      - filter_section_generate(status_params, status_links, :status)
   .row
     .col-xs-12
       h4
         b Sort
-      - filter_section_generate(params, sort_params, sort_links, :sort)
+      - filter_section_generate(sort_params, sort_links, :sort)

@@ -25,7 +25,18 @@ if $('.select2-tags').length
         data: (term) ->
           { search: term }
         results: (data) ->
+          console.log data
           { results: data }
+
+      createSearchChoice: (term, data) ->
+        if $(data).filter((->
+            @text.localeCompare(term) == 0
+          )).length == 0
+          return {
+            id: term
+            text: term
+          }
+        return
 
       formatResult: (item, page) ->
         item.text
@@ -33,4 +44,20 @@ if $('.select2-tags').length
         item.text
       formatNoMatches: (term)->
         'No matches, press enter to create a "'+term+'" tag.'
+
+
+    $('.select2-tags').on 'change', (e)->
+      console.log e
+
+    # $('.select2-search-field > input.select2-input').on 'keyup', (e) ->
+    #   addToList $(this).val() if e.keyCode == 13
+
+    # $('.select2-input').on 'keydown', (e) ->
+    #   console.log 'KEEYYYYED'
+    #   if e.keyCode == 13
+    #     $('#select2-drop-mask').click()
+    #     $('#name').focus()
+    #     e.preventDefault()
+    #   return
+
 
