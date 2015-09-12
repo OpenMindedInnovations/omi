@@ -4,7 +4,7 @@ class Blog < ActiveRecord::Base
 
   acts_as_taggable_on :tags
 
-  validates_presence_of :title, :content
+  validates_presence_of :title, :content, :author
 
   self.per_page = 6
 
@@ -13,11 +13,11 @@ class Blog < ActiveRecord::Base
   def self.sort_filter(sort_param)
     case sort_param
     when 'oldest'
-      order(created_at: :desc)
-    when 'newest'
       order(created_at: :asc)
+    when 'newest'
+      order(created_at: :desc)
     else
-      self.none
+      order(created_at: :asc)
     end
   end
 end

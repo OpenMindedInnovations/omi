@@ -80,10 +80,20 @@ gem 'google-analytics-rails'
 gem 'dalli'
 gem 'memcachier'
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+  gem 'factory_girl_rails'
+end
+
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
   gem 'letter_opener'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'shoulda-matchers', require: false
 end
 
 ruby '2.2.2'
