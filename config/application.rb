@@ -18,7 +18,7 @@ module OMI
       Devise::PasswordsController.layout 'landing'
     end
 
-    config.generatorsdo|g|
+    config.generators do|g|
       g.test_framework :rspec,
         fixtures: true,
         view_specs: false,

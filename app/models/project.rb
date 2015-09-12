@@ -41,7 +41,7 @@ class Project < ActiveRecord::Base
     when "newest"
       order(created_at: :desc)
     else
-      self.none
+      order(created_at: :asc)
     end
   end
 end

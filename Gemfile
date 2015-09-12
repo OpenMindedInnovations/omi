@@ -91,4 +91,8 @@ group :development do
   gem 'letter_opener'
 end
 
+group :test do
+  gem "database_cleaner"
+end
+
 ruby '2.2.2'

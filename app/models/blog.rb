@@ -13,11 +13,11 @@ class Blog < ActiveRecord::Base
   def self.sort_filter(sort_param)
     case sort_param
     when 'oldest'
-      order(created_at: :desc)
-    when 'newest'
       order(created_at: :asc)
+    when 'newest'
+      order(created_at: :desc)
     else
-      self.none
+      order(created_at: :asc)
     end
   end
 end
