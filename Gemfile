@@ -80,6 +80,11 @@ gem 'google-analytics-rails'
 gem 'dalli'
 gem 'memcachier'
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+  gem 'factory_girl_rails'
+end
+
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
