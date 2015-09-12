@@ -1,8 +1,18 @@
 require "rails_helper"
 
 RSpec.describe Blog, type: :model do
-  it "is valid with a title and content" do
+  it "is valid with author, title and content" do
     expect(FactoryGirl.build(:blog)).to be_valid
+  end
+
+  it "is valid with out tags" do
+    expect(FactoryGirl.build(:blog, tag_list: nil)).to be_valid
+  end
+
+  it 'is invalid without an author' do
+    blog = FactoryGirl.build(:blog, author: nil)
+    blog.valid?
+    expect(blog.errors[:author]).to include("can't be blank")
   end
 
   it "is invalid without a title" do
@@ -27,7 +37,7 @@ RSpec.describe Blog, type: :model do
     expect(blog).to eq(6)
   end
 
-  describe "tag" do
+  context "tag" do
     it "is taggable" do
       blog = FactoryGirl.create(:blog)
       blog.tag_list.add("tag")
@@ -36,8 +46,8 @@ RSpec.describe Blog, type: :model do
 
     it "can have many tags" do
       blog = FactoryGirl.create(:blog)
-      blog.tag_list.add("tag1, tag2, tag3")
-      expect(blog.tag_list).to eq(["tag1, tag2, tag3"])
+      blog.tag_list.add(["tag1", "tag2", "tag3"])
+      expect(blog.tag_list).to eq(["tag1", "tag2", "tag3"])
     end
 
     it "is parsed for dashes in place of spaces" do
