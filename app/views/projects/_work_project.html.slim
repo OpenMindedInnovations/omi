@@ -1,8 +1,10 @@
-.project  
-  .project-image
-    = link_to work_show_path(project) do
-      = image_tag project.image_url
+.project
   .project-title
     h4
       = link_to work_show_path(project.slug) do
         = project.name
+  = link_to work_show_path(project) do
+    - if project.image_url.present?
+      = image_tag project.image_url, class: 'project-image'
+    - else
+      = image_tag 'placeholder.png', class: 'project-image'

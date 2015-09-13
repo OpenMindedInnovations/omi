@@ -9,14 +9,11 @@ b4 = Blog.create!(author: 'Ken Miyamoto', title: 'Video blog with content', embe
 b5 = Blog.create!(author: 'Blaine Hatab', title: 'Tag Tester', content: "This is a quick introduction to show you how to setup react native. Quick note, I had to restart my computer after installing watchman for it to work. I'm not 100% sure why, but it worked after restarting my computer. \r\n\r\n### Install libraries\r\n\r\n```\r\nbrew install node\r\n\r\nbrew install watchman\r\n\r\nnpm install -g react-native-cli\r\n```\r\n\r\n### Create and start project\r\n\r\n```\r\nreact-native init ExampleReactNative\r\n\r\ncd ExampleReactNative\r\n\r\nnpm start\r\n```\r\n\r\n### Launch IOS simulator\r\nLaunch Xcode, open up the project you just created, and run the project. You should see an IOS simulator pop up and now you can see the app you just created. Xcode is simply there to run the simulator and you aren't going to be using it to edit any code. Use a standard IDE or text editor to change the code. Press CMD+R on the IOS simulator to see your changes take place.\r\n\r\nNow you're ready to make phone apps!\r\n\r\n### Links\r\nReact Native: http://facebook.github.io/react-native/\r\n\r\nReact: http://facebook.github.io/react/")
 
 t1 = 'screencast'
-t1a = 'Screencast'
 t2 = 'rails'
 t3 = 'ruby'
 t4 = 'HTML'
 t5 = 'CSS'
-t5a = 'css'
 t6 = 'vlog'
-t6a = 'Vlog'
 
 
 b1.tag_list.add([t1, t2])
@@ -25,13 +22,13 @@ b1.save
 b2.tag_list.add([t4, t5])
 b2.save
 
-b3.tag_list.add([t1, t2, t3, t6, t6a])
+b3.tag_list.add([t1, t2, t3, t6])
 b3.save
 
 b4.tag_list.add([t1, t2, t4, t5, t6])
 b4.save
 
-b5.tag_list.add([t1a, t3, t5, t5a, t6])
+b5.tag_list.add([t1, t3, t5, t6])
 b5.save
 
 u1 = User.new(email: 'greg@greg.com', first_name: 'greg', last_name: 'guy', password: 'asdfasdf', password_confirmation: 'asdfasdf')
@@ -50,7 +47,7 @@ p1 = Project.create!(name: 'Music Festival Nation',
                      user: u1,
                      category: :product,
                      status: :active,
-                     is_public: true,
+                     featured: true,
                      tag_list: "music, festival, social",
                      description: 'Music Festival Nation is striving to be your one stop shop for anything and everything music festival related. Find rides, get up to date information, and more!')
 
@@ -58,7 +55,7 @@ p2 = Project.create!(name: 'Find Me in the Clouds',
                      user: u2,
                      category: :contract,
                      status: :completed,
-                     is_public: true,
+                     featured: true,
                      tag_list: "clound, music",
                      description: 'Mandy Grotie loves to create art that explodes with color! Experience the funky style and passion behind her work.')
 
@@ -66,7 +63,7 @@ p3 = Project.create!(name: 'Hamilton House Education Consulting',
                      user: u3,
                      category: :contract,
                      status: :completed,
-                     is_public: true,
+                     featured: true,
                      tag_list: "education, hamilton",
                      description: 'We made a website for this group that helps Chinese studnets get into American and UK universites.')
 
@@ -74,7 +71,7 @@ p4 = Project.create!(name: 'Festy Box',
                      user: u1,
                      category: :product,
                      status: :active,
-                     is_public: true,
+                     featured: true,
                      tag_list: "music, festival, social",
                      description: 'Monthly subscription box for festival related goods.')
 
@@ -82,7 +79,7 @@ p5 = Project.create!(name: 'Pin Squad',
                      user: u2,
                      category: :product,
                      status: :active,
-                     is_public: false,
+                     featured: false,
                      tag_list: "pin, festival, social",
                      description: 'Pin Squad makes custom pins for companies and artists.')
 

@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
   end
 
   def work
-    @projects = Project.with_category(:contract).where(is_public: true)
+    @projects = Project.with_category(:contract).where(featured: true)
     render layout: 'landing'
   end
 
@@ -28,7 +28,7 @@ class ProjectsController < ApplicationController
   end
 
   def products
-    @projects = Project.with_category(:product).where(is_public: true)
+    @projects = Project.with_category(:product).where(featured: true)
     render layout: 'landing'
   end
 
@@ -87,7 +87,8 @@ class ProjectsController < ApplicationController
         :category,
         :status,
         :tag_list,
-        :image
+        :image,
+        :featured
       )
     end
 
