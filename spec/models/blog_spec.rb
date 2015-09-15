@@ -69,7 +69,7 @@ RSpec.describe Blog, type: :model do
       expect(Blog.sort_filter("oldest").first.title).to eq("blog 1")
     end
 
-    it 'returns oldest post first when sort param is newest' do
+    it 'returns newest post first when sort param is newest' do
       expect(Blog.sort_filter("newest").first.title).to eq("blog 3")
     end
 
