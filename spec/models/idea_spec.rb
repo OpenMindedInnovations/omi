@@ -39,8 +39,8 @@ RSpec.describe Idea, type: :model do
 
     it "can have many tags" do
       idea = FactoryGirl.create(:idea)
-      idea.tag_list.add("tag1, tag2, tag3")
-      expect(idea.tag_list).to eq(["tag1, tag2, tag3"])
+      idea.tag_list.add("tag1", "tag2", "tag3")
+      expect(idea.tag_list).to eq(["tag1", "tag2", "tag3"])
     end
 
     it "is parsed for dashes in place of spaces" do
@@ -73,7 +73,7 @@ RSpec.describe Idea, type: :model do
       expect(Idea.sort_filter("oldest").first.name).to eq("idea 1")
     end
 
-    it 'returns oldest ideas first when sort param is newest' do
+    it 'returns newest ideas first when sort param is newest' do
       expect(Idea.sort_filter("newest").first.name).to eq("idea 3")
     end
 
