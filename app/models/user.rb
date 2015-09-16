@@ -16,15 +16,33 @@ class User < ActiveRecord::Base
 
   validates_presence_of :first_name, :last_name
 
-  def self.list_of_skills
-    @skills
-  end
+  def self.list_of_tags(name, parse=false)
+    case name
+    when "skills"
+      list = @skills
+    when "roles"
+      list = @roles
+    end
 
-  def self.list_of_roles
-    @roles
+    if parse == true
+      list.map { |item| item.gsub(" ", "-") }
+    else
+      list
+    end 
   end
 
   def full_name
     "#{first_name.capitalize} #{last_name.capitalize}".strip
+  end
+
+  def self.sort_filter(sort_param)
+    case sort_param
+    when "oldest"
+      order(created_at: :asc)
+    when "newest"
+      order(created_at: :desc)
+    else
+      order(created_at: :asc)
+    end
   end
 end

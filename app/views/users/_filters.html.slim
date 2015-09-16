@@ -1,0 +1,23 @@
+.filters
+  - sort_params = params[:sort] || ''
+  - skill_params = params[:skills] || ''
+  - role_params = params[:roles] || ''
+  - sort_links = ['oldest', 'newest']
+  - skill_links = User.list_of_tags("skills", parse=true)
+  - role_links = User.list_of_tags("roles", parse=true)
+
+  .row
+    .col-xs-12
+      h4
+        b Skills
+      - filter_section_generate(skill_params, skill_links, :skills)
+  .row
+    .col-xs-12
+      h4
+        b Roles
+      - filter_section_generate(role_params, role_links, :roles)
+  .row
+    .col-xs-12
+      h4
+        b Sort
+      - filter_section_generate(sort_params, sort_links, :sort)
