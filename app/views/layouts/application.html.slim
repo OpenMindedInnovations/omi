@@ -19,9 +19,19 @@ html lang="en"
 
   body class=body_classes 
     = render 'layouts/header'
+
+    - if current_user.sign_in_count == 1
+      = render 'pages/welcome'
+      - current_user.update_attribute(:sign_in_count, 2)
+
     .container
       .row
         .col-xs-12
           = yield
 
     = javascript_include_tag "application"
+
+  javascript:
+    $('.message_button').on('click', function(){
+      $(this).parent('div').slideUp();
+    })
