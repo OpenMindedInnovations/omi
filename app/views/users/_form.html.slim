@@ -2,4 +2,7 @@
   = f.input :first_name, placeholder: "First name..."
   = f.input :last_name, placeholder: "Last name..."
   = f.input :email, placeholder: "Email..."
+  = f.input :skill_list, as: :check_boxes, collection: User::Skills, wrapper_html: { class: 'col-xs-12 col-md-5 col-lg-6' }
+  = f.input :role_list, as: :check_boxes, collection: User::Roles, wrapper_html: { class: 'col-xs-12 col-md-5 col-lg-2' }
+  = f.input :about_me, as: :text, wrapper_html: { class: 'col-xs-12 col-md-5 col-lg-4' }
   = f.submit class: 'btn btn-success btn-lg'

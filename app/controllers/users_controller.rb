@@ -25,10 +25,15 @@ class UsersController < ApplicationController
 
   private
     def user_params
+      params[:user][:skill_list] = params[:user][:skill_list].join(',').chomp(",")
+      params[:user][:role_list] = params[:user][:role_list].join(',').chomp(",")
       params.require(:user).permit(
         :email,
         :first_name,
-        :last_name
+        :last_name,
+        :about_me,
+        :skill_list,
+        :role_list
       )
     end
 end
