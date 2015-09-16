@@ -31,6 +31,10 @@ class User < ActiveRecord::Base
     end 
   end
 
+  def self.parse_for_params(arr)
+    arr.map { |item| item.gsub(" ", "-") }
+  end
+
   def full_name
     "#{first_name.capitalize} #{last_name.capitalize}".strip
   end

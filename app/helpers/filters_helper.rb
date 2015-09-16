@@ -3,6 +3,10 @@ module FiltersHelper
     name.gsub("-", " ")
   end
 
+  def self.parse_for_params(arr)
+    arr.map { |item| item.gsub(" ", "-") }
+  end
+
   def filter_section_generate(generate_params, generate_links, hash_key)
     
     generate_params = generate_params.downcase.split(' ')
