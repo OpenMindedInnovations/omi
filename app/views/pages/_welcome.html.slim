@@ -5,8 +5,8 @@
   
   #profile_wrapper
     = simple_form_for current_user do |f|
-      = f.input :skill_list, collection: User::Skills, as: :check_boxes, wrapper_html: { class: 'col-xs-12 col-md-5 col-lg-6' }
-      = f.input :role_list, collection: User::Roles, as: :check_boxes, wrapper_html: { class: 'col-xs-12 col-md-5 col-lg-2' }
+      = f.input :skill_list, as: :check_boxes, collection: User.list_of_skills, wrapper_html: { class: 'col-xs-12 col-md-5 col-lg-6' }
+      = f.input :role_list, as: :check_boxes, collection: User.list_of_roles, wrapper_html: { class: 'col-xs-12 col-md-5 col-lg-2' }
       = f.input :about_me, as: :text, wrapper_html: { class: 'col-xs-12 col-md-5 col-lg-4' }
       = f.submit 'update profile', class: 'btn btn-default'
     .clear
