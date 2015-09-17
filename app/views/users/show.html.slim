@@ -10,3 +10,8 @@ h1= @user.full_name
     h2 Projects
     - @user.projects.each do |project|
       = render project
+
+  .col-xs-12.col-md-12
+    h2 Skills
+    - @user.skill_list.each do |skill|
+      = link_to skill, users_path(skills: parse_name(skill)), { class: 'btn btn-primary btn-xs' }

@@ -3,6 +3,18 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    
+    if params[:skills].present?
+      @users = @users.tagged_with(params[:skills].split(' ').map { |t| t.gsub("-", " ")} )
+    end
+
+    if params[:roles].present?
+      @users = @users.tagged_with(params[:roles].split(' ').map { |t| t.gsub("-", " ")} )
+    end
+    
+    if params[:sort].present?
+      @users= @users.sort_filter(params[:sort])
+    end
   end
 
   def show
