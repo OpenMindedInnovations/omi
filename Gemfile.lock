@@ -72,6 +72,8 @@ GEM
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
       rack (>= 0.9.0)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
@@ -92,6 +94,7 @@ GEM
     connection_pool (2.2.0)
     dalli (2.7.4)
     database_cleaner (1.4.1)
+    debug_inspector (0.0.2)
     devise (3.5.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -375,6 +378,7 @@ DEPENDENCIES
   albino
   awesome_print
   better_errors
+  binding_of_caller
   bootstrap-sass (~> 3.3.5)
   carrierwave
   coffee-rails (~> 4.0.0)

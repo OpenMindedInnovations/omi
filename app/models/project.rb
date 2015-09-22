@@ -6,7 +6,10 @@ class Project < ActiveRecord::Base
 
   markable_as :favorite
 
-  belongs_to :user
+#  belongs_to :user
+  has_many :teams
+  has_many :users, through: :teams
+  accepts_nested_attributes_for :teams
 
   friendly_id :name, use: [:slugged, :finders]
 

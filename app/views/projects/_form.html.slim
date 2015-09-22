@@ -13,6 +13,11 @@
   - if is_admin
     = f.input :featured
 
+  = simple_fields_for(:teams_attributes) do |ff|
+
+    = ff.simple_fields_for(:users_attributes) do |fff|
+      = fff.input :search_name, label: "Team members", required: false, input_html: { value: project.users.pluck( :id).join(','), class: 'select2-teams', data: { placeholder: "Enter names to add to team", saved: project.users.map {|u| {id: u.id, text: u.first_name }}.to_json, url: users_search_name_path }}
+
   
   = f.file_field :image
   

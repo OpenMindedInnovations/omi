@@ -38,6 +38,7 @@ class ProjectsController < ApplicationController
 
   def new 
     @project = Project.new
+    @project.teams.build
   end
 
   def show
@@ -57,9 +58,19 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    params
+    puts '============='
+    puts '============='
+    puts '============='
+    ap params
+    puts '============='
+    puts '============='
+
     @project = Project.new(project_params)
 
     if @project.save
+      @project.teams.build
+      @project.users << User.find(params[:teams_attributes][:users_attributes][:search_name].split(','))
       redirect_to projects_path
     else
       render new_project_path
@@ -67,6 +78,8 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    @project.users.clear if params[:teams_attributes][:users_attributes][:search_name].present?
+    @project.users << User.find(params[:teams_attributes][:users_attributes][:search_name].split(','))
     if @project.update(project_params)
       redirect_to project_path(@project), notice: 'Project was successfully updated.'
     else
@@ -82,13 +95,17 @@ class ProjectsController < ApplicationController
   private
     def project_params
       params.require(:project).permit(
+        :id,
         :name,
         :description,
         :category,
         :status,
         :tag_list,
         :image,
-        :featured
+        :featured,
+        teams_attributes: [:id, :project_id, :user_id,
+          users_attributes: [:id, :email, :first_name, :last_name, :search_name]
+        ] 
       )
     end
 

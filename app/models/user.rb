@@ -11,8 +11,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :projects
   has_many :ideas
+#  has_many :projects
+  has_many :teams
+  has_many :users, through: :teams
 
   validates_presence_of :first_name, :last_name
 

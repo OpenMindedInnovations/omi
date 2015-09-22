@@ -35,6 +35,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def search_name
+    names = User.where("LOWER(users.first_name) ILIKE ?", "%#{params[:name]}%")
+                .order("first_name ASC")    
+                .limit(5)
+
+    render json: names.map { |u| {id: u.id, text: u.first_name } }
+  end
+
   private
     def user_params
       params[:user][:skill_list] = params[:user][:skill_list].join(',').chomp(",")
