@@ -42,6 +42,7 @@ OMI::Application.routes.draw do
 
   resources :users, only: [:index, :show, :update]
   get 'my-account' => 'users#edit'
+  get 'users_search_name' => 'users#search_name'
 
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
