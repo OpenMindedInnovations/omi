@@ -80,6 +80,9 @@ gem 'google-analytics-rails'
 gem 'dalli'
 gem 'memcachier'
 
+# Puma for multithreaded server
+gem 'puma'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'

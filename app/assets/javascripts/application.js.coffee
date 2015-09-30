@@ -8,6 +8,7 @@
 #= require components
 #= require particles
 #= require teams
+#= require messages
 
 if $('#particles-js').length
   particlesJS.load 'particles-js', 'particles-config.json', ->

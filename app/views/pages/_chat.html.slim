@@ -1,0 +1,4 @@
+.chatbox
+  = simple_form_for :message, url: 'chat', remote: true do |f|
+    = f.input :content
+    = f.button :submit, "send message"

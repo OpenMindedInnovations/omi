@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150921235910) do
+ActiveRecord::Schema.define(version: 20150930200008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,15 @@ ActiveRecord::Schema.define(version: 20150921235910) do
 
   add_index "marks", ["markable_id", "markable_type", "mark"], name: "index_marks_on_markable_id_and_markable_type_and_mark", using: :btree
   add_index "marks", ["marker_id", "marker_type", "mark"], name: "index_marks_on_marker_id_and_marker_type_and_mark", using: :btree
+
+  create_table "messages", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"
@@ -162,6 +171,7 @@ ActiveRecord::Schema.define(version: 20150921235910) do
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
   add_foreign_key "ideas", "users"
+  add_foreign_key "messages", "users"
   add_foreign_key "teams", "projects"
   add_foreign_key "teams", "users"
 end

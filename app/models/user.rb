@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
   has_many :teams
   has_many :projects, through: :teams
 
+  has_many :messages
+
   validates_presence_of :first_name, :last_name
 
   def self.list_of_tags(name, parse=false)
