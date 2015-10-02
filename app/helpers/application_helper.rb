@@ -41,6 +41,10 @@ module ApplicationHelper
     basic_body_class = "#{qualified_controller_name.gsub('_', '-')} #{qualified_controller_name.gsub('_', '-')}-#{controller.action_name}"
     basic_body_class
   end
+
+  def page_javascript(*files)
+      content_for(:page_specific_js) { javascript_include_tag(*files) }
+  end
 end
 
 
