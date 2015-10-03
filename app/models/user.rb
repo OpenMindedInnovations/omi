@@ -14,7 +14,9 @@ class User < ActiveRecord::Base
   has_many :ideas
 #  has_many :projects
   has_many :teams
-  has_many :users, through: :teams
+  has_many :projects, through: :teams
+
+  has_many :messages
 
   validates_presence_of :first_name, :last_name
 

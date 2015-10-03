@@ -262,6 +262,7 @@ GEM
     orm_adapter (0.5.0)
     pg (0.18.2)
     posix-spawn (0.3.11)
+    puma (2.14.0)
     pygments.rb (0.6.3)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.2.0)
@@ -402,6 +403,7 @@ DEPENDENCIES
   mini_magick
   nokogiri
   pg
+  puma
   pygments.rb
   quiet_assets
   rails (~> 4.2.4)

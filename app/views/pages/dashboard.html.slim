@@ -1,4 +1,9 @@
 .row
+  ul#chatbox
+    = render partial: 'message'
+  = render partial: "pages/chat", locals: {message: @message}
+
+.row
   .col-xs-12.col-md-6
     h2.header Trending Ideas
     - @ideas.each do |idea|

@@ -8,6 +8,8 @@ OMI::Application.routes.draw do
   get 'about', to: 'pages#about', as: :about
   get 'admin', to: 'pages#admin', as: :admin
   get 'dashboard', to: 'pages#dashboard', as: :dashboard
+  post 'chat', to: 'pages#chat', as: :chat
+  get 'event', to: 'pages#event', as: :event
 
   root "pages#home"
 
