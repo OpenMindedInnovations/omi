@@ -21,3 +21,10 @@ html lang="en"
     = render 'layouts/landing_header'
     = yield
     = javascript_include_tag "application"
+    = yield(:page_specific_js)
+
+    / spinner loader 
+    javascript:
+      $(window).load(function(){
+        $('#loading').fadeOut(1000);
+      })
