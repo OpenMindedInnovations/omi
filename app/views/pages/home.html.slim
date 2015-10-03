@@ -1,1 +1,22 @@
 #particles-js
+
+div#loading
+  = image_tag(("loading"), id: 'loader')
+
+h1.headline A collaborative network of entreprenures, developers, and makers.
+
+div#ri-grid.ri-grid.ri-grid-size-2.grid-collage
+  ul
+    - img_count = Dir["app/assets/images/profile_composites/*"].length
+    - i = 1
+    = until i > img_count
+      li: a href="#" = image_tag("profile_composites/profile#{i}.jpg")
+      - i += 1
+
+/ TODO: link to hire us page when it's done
+.col-xs-12.col-md-12.call-action
+  = link_to "Join us", new_user_registration_path, class: 'btn-landing', method: :get
+  = link_to "Hire us", "#", class: 'btn-landing', method: :get
+
+/ loading home page js
+= page_javascript('modernizr_grid', 'gridrotator_grid', 'settings_grid')

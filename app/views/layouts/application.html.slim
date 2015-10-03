@@ -30,8 +30,9 @@ html lang="en"
           = yield
 
     = javascript_include_tag "application"
+    = yield(:page_specific_js)
 
   javascript:
     $('.message_button').on('click', function(){
       $(this).parent('div').slideUp();
-    })
+    }

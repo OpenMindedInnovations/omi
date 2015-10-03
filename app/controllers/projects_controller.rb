@@ -59,17 +59,11 @@ class ProjectsController < ApplicationController
 
   def create
     params
-    puts '============='
-    puts '============='
-    puts '============='
-    ap params
-    puts '============='
-    puts '============='
-
     @project = Project.new(project_params)
+    @project.teams.build
+    @project.owner = current_user
 
     if @project.save
-      @project.teams.build
       @project.users << User.find(params[:teams_attributes][:users_attributes][:search_name].split(','))
       redirect_to projects_path
     else

@@ -6,8 +6,8 @@
 #= require select2
 #= require tags
 #= require components
-#= require particles
 #= require teams
+#= require particles
 
 if $('#particles-js').length
   particlesJS.load 'particles-js', 'particles-config.json', ->
