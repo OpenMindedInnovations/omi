@@ -1,0 +1,72 @@
+// landing page - works section
+
+.landing-block
+  height: 80vh
+
+#header-work
+  margin: 3em 0
+
+.circle
+  display: inline-block
+  height: 3em
+  width: 3em
+  background-color: $blue
+  border-radius: 50%
+  margin-top: 6em
+ 
+.caret-down
+  width: 0
+  height: 0
+  margin: 0 auto
+  margin-top: 1.2em
+  border-top: .9em solid #fff
+  border-left: .9em solid transparent
+  border-right: .9em solid transparent
+  cursor: pointer
+
+.work-container
+  width: 100%
+  height: 450px
+  position: relative
+  margin-bottom: 5rem
+  cursor: pointer
+  overflow: hidden
+
+.work-container
+  img
+    position: relative
+    z-index: 1
+    width: 100%
+    +transition(all .3s ease)
+
+.work-container
+  &:hover img
+    +scale(1.1)
+    z-index: -1
+
+.work-details
+  position: absolute
+  background: rgba(0, 0, 0, 0.7)
+  top: 0
+  right: 0
+  left: 0
+  bottom: 0
+  z-index: 2
+
+.details-inner
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  width: 50%
+  height: 100%
+  h1
+    color: #fff
+    text-align: center
+  p
+    font-size: 1.2em 
+    color: #fff
+    text-align: left
+    padding: 1.2em 0
+  span
+    font-size: .9em
