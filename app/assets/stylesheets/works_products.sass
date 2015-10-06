@@ -1,8 +1,7 @@
-// landing - works
+// landing page - works section
 
 .landing-block
   height: 80vh
-
 
 #header-work
   margin: 3em 0
@@ -25,7 +24,7 @@
   border-right: .9em solid transparent
   cursor: pointer
 
-.work
+.work-container
   width: 100%
   height: 450px
   position: relative
@@ -33,16 +32,26 @@
   cursor: pointer
   overflow: hidden
 
-  .work-image
+.work-container
+  img
+    position: relative
+    z-index: 1
     width: 100%
+    +transition(all .3s ease)
 
-  .work-details
-    position: absolute
-    background: rgba(0, 0, 0, 0.7)
-    top: 0
-    right: 0
-    left: 0
-    bottom: 0
+.work-container
+  &:hover img
+    +scale(1.1)
+    z-index: -1
+
+.work-details
+  position: absolute
+  background: rgba(0, 0, 0, 0.7)
+  top: 0
+  right: 0
+  left: 0
+  bottom: 0
+  z-index: 2
 
 .details-inner
   display: flex
