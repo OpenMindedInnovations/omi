@@ -1,20 +1,8 @@
 - title @project.name
 - description @project.description
 
+= render 'projects/work_show_header', project: @project
+
 .container
-  .row
-    .col-xs-12.col-md-6
-      = render 'projects/work_project', project: @project
-
-    .col-xs-12.col-md-6
-      = render 'projects/work_description', project: @project
-
-      
-
-
-
-
-
-
-
-
+  .col-xs-12.col-md-6
+    = render 'projects/work_description', project: @project
