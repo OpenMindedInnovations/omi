@@ -8,6 +8,7 @@
 #= require components
 #= require teams
 #= require particles
+#= require smoothscroll
 
 if $('#particles-js').length
   particlesJS.load 'particles-js', 'particles-config.json', ->
