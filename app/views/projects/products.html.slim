@@ -6,8 +6,6 @@
   .col-xs-10.col-md-6.center
     p We like create our own awesome projects, here are some products that have started and launched by our members here at Open Minded Innovations. 
 
-.container.center
-  .row
-    - @projects.each do |project|
-      .col-xs-12.col-md-6
-        = render 'projects/products_project', project: project
+.container
+  - @projects.each do |project|
+    = render 'projects/products_project', project: project
