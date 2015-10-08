@@ -43,45 +43,76 @@ u1.save!
 u2.save!
 u3.save!
 
+festybox = File.open(Rails.root + "app/assets/images/seed/festybox.png")
+bhoulder = File.open(Rails.root + "app/assets/images/seed/bhoulder.png")
+evue = File.open(Rails.root + "app/assets/images/seed/evue.png")
+fmitc = File.open(Rails.root + "app/assets/images/seed/fmitc.png")
+hhec = File.open(Rails.root + "app/assets/images/seed/hhec.png")
+mfn = File.open(Rails.root + "app/assets/images/seed/mfn.png")
+
+
 p1 = Project.create!(name: 'Music Festival Nation',
-                     user: u1,
+                     owner: u1,
                      category: :product,
                      status: :active,
+                     image: mfn,
                      featured: true,
                      tag_list: "music, festival, social",
                      description: 'Music Festival Nation is striving to be your one stop shop for anything and everything music festival related. Find rides, get up to date information, and more!')
 
 p2 = Project.create!(name: 'Find Me in the Clouds',
-                     user: u2,
+                     owner: u2,
                      category: :contract,
                      status: :completed,
+                     image: fmitc,
                      featured: true,
                      tag_list: "clound, music",
                      description: 'Mandy Grotie loves to create art that explodes with color! Experience the funky style and passion behind her work.')
 
 p3 = Project.create!(name: 'Hamilton House Education Consulting',
-                     user: u3,
+                     owner: u3,
                      category: :contract,
                      status: :completed,
+                     image: hhec,
                      featured: true,
                      tag_list: "education, hamilton",
                      description: 'We made a website for this group that helps Chinese studnets get into American and UK universites.')
 
 p4 = Project.create!(name: 'Festy Box',
-                     user: u1,
+                     owner: u1,
                      category: :product,
                      status: :active,
+                     image: festybox,
                      featured: true,
                      tag_list: "music, festival, social",
                      description: 'Monthly subscription box for festival related goods.')
 
 p5 = Project.create!(name: 'Pin Squad',
-                     user: u2,
+                     owner: u2,
                      category: :product,
                      status: :active,
+                     image: nil,
                      featured: false,
                      tag_list: "pin, festival, social",
                      description: 'Pin Squad makes custom pins for companies and artists.')
+
+p6 = Project.create!(name: 'eVue Analytics',
+                     owner: u2,
+                     category: :contract,
+                     status: :active,
+                     image: evue,
+                     featured: true,
+                     tag_list: "analytics, rails, react.js",
+                     description: 'eVue Analytics helps laundry plants manage and keep track of their daily operations.')
+
+p7 = Project.create!(name: 'Bhoulder',
+                     owner: u2,
+                     category: :product,
+                     status: :active,
+                     image: bhoulder,
+                     featured: true,
+                     tag_list: "hardware",
+                     description: 'The Bhoulder is a vacuum oven built for simplicity. The essential oil extraction process has never been this easy before. It features digital temperature controls for easy control and a vacuum gaug...')
 
 i1 = Idea.create(name: 'Video Application',
                     description: 'Employers can use this service to create a webpage that applicants can go to. The employers create a list of questions that the applicants answer with video.',
