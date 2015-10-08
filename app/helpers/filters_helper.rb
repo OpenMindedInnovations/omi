@@ -15,7 +15,7 @@ module FiltersHelper
       if generate_params.include?(link)
         state = generate_params - [link]
         state.empty? ? current_params.delete(hash_key) : current_params[hash_key] = state.join(' ')
-        concat link_to( parse_name(link), (current_params), { class: 'btn btn-success' } )
+        concat link_to( parse_name(link), (current_params), { class: 'btn btn-md btn-success' } )
       else
         if hash_key == :status
           current_params[hash_key] = parse_name(link)
@@ -25,7 +25,7 @@ module FiltersHelper
           state = generate_params + [link]
           current_params[hash_key] = state.join(' ')
         end
-        concat link_to( parse_name(link), (current_params), { class: 'btn btn-default' } )
+        concat link_to( parse_name(link), (current_params), { class: 'btn btn-md btn-default' } )
       end
     end
   end

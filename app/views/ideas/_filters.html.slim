@@ -3,13 +3,14 @@
   - tag_params = params[:tags] || ''
   - sort_links = ['votes-up', 'votes-down', 'oldest', 'newest']
   - tag_links = Idea.ordered_tags
-  .row
-    .col-xs-12
-      h4
-        b Tags
-      - filter_section_generate(tag_params, tag_links, :tags)
-  .row
-    .col-xs-12
-      h4
-        b Sort
-      - filter_section_generate(sort_params, sort_links, :sort)
+
+  .filters-container
+    .filter-sub-section
+      .filter-sub-title Tags
+      .filter-tag-container
+        - filter_section_generate(tag_params, tag_links, :tags)
+
+    .filter-sub-section
+      .filter-sub-title Sort
+      .filter-tag-container
+        - filter_section_generate(sort_params, sort_links, :sort)
