@@ -7,17 +7,20 @@
   - status_links = Project.status_list
 
   .filters-container
-    .filter-sub-section
-      .filter-sub-title Tags
-      .filter-tag-container
-        - filter_section_generate(tag_params, tag_links, :tags)
+    -if sort_links.present?
+      .filter-sub-section
+        .filter-sub-title Sort
+        .filter-tag-container
+          - filter_section_generate(sort_params, sort_links, :sort)
 
-    .filter-sub-section
-      .filter-sub-title Status
-      .filter-tag-container
-        - filter_section_generate(status_params, status_links, :status)
+    -if status_links.present?
+      .filter-sub-section
+        .filter-sub-title Status
+        .filter-tag-container
+          - filter_section_generate(status_params, status_links, :status)
 
-    .filter-sub-section
-      .filter-sub-title Sort
-      .filter-tag-container
-        - filter_section_generate(sort_params, sort_links, :sort)
+    -if tag_links.present?
+      .filter-sub-section
+        .filter-sub-title Tags
+        .filter-tag-container
+          - filter_section_generate(tag_params, tag_links, :tags)

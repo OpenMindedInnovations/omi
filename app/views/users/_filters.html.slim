@@ -7,18 +7,21 @@
   - role_links = User.list_of_tags("roles", parse=true)
 
   .filters-container
-    .filter-sub-section
-      .filter-sub-title Roles
-      .filter-tag-container
-        - filter_section_generate(role_params, role_links, :roles)
+    -if role_links.present?
+      .filter-sub-section
+        .filter-sub-title Roles
+        .filter-tag-container
+          - filter_section_generate(role_params, role_links, :roles)
 
-    .filter-sub-section
-      .filter-sub-title Sort
-      .filter-tag-container
-        - filter_section_generate(sort_params, sort_links, :sort)
+    -if sort_links.present?
+      .filter-sub-section
+        .filter-sub-title Sort
+        .filter-tag-container
+          - filter_section_generate(sort_params, sort_links, :sort)
 
-    .filter-sub-section
-      .filter-sub-title Skills
-      .filter-tag-container
-        - filter_section_generate(skill_params, skill_links, :skills)
+    -if skill_links.present?
+      .filter-sub-section
+        .filter-sub-title Skills
+        .filter-tag-container
+          - filter_section_generate(skill_params, skill_links, :skills)
 

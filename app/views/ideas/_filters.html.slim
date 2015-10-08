@@ -5,12 +5,14 @@
   - tag_links = Idea.ordered_tags
 
   .filters-container
-    .filter-sub-section
-      .filter-sub-title Tags
-      .filter-tag-container
-        - filter_section_generate(tag_params, tag_links, :tags)
+    -if sort_links.present?
+      .filter-sub-section
+        .filter-sub-title Sort
+        .filter-tag-container
+          - filter_section_generate(sort_params, sort_links, :sort)
 
-    .filter-sub-section
-      .filter-sub-title Sort
-      .filter-tag-container
-        - filter_section_generate(sort_params, sort_links, :sort)
+    -if tag_links.present?
+      .filter-sub-section
+        .filter-sub-title Tags
+        .filter-tag-container
+          - filter_section_generate(tag_params, tag_links, :tags)
