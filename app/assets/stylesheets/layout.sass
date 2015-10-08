@@ -1,7 +1,6 @@
 textarea
   min-height: 6rem
 
-
 .landing-body
   p, span
     font-family: 'Merriweather'
@@ -59,6 +58,22 @@ a
 .dark-gray-transparent
   background: rgba(0, 0, 0, 0.7)
 
+.gray-transparent
+  background: rgba(0, 0, 0, 0.5)
+
 .light-gray-transparent
   background: rgba(0, 0, 0, 0.3)
 
+@media (max-width: 730px) 
+  .work-details-inner.half-width
+    width: 100% !important
+  .work-image
+    width: auto !important
+    height: 100%
+
+@media (max-width: 1000px) 
+  .product-page-container
+    p  
+      width: 100% !important
+  .product-image
+    display: none !important
