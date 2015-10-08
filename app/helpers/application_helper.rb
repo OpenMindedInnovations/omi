@@ -43,7 +43,26 @@ module ApplicationHelper
   end
 
   def page_javascript(*files)
-      content_for(:page_specific_js) { javascript_include_tag(*files) }
+    content_for(:page_specific_js) { javascript_include_tag(*files) }
+  end
+
+  def gravatar?(user)
+    gravatar_check = "http://gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email.downcase)}.png?d=404"
+    uri = URI.parse(gravatar_check)
+    http = Net::HTTP.new(uri.host, uri.port)
+    request = Net::HTTP::Get.new(uri.request_uri)
+    response = http.request(request)
+    response.code.to_i != 404 # from d=404 parameter
+  end
+
+  def avatar_for(user)
+    if gravatar?(user)
+      gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
+      gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
+      image_tag(gravatar_url, alt: user.full_name, class: "avatar")
+    else
+      image_tag('avatar_placeholder.png')
+    end
   end
 end
 

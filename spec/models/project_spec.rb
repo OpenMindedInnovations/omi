@@ -32,7 +32,7 @@ RSpec.describe Project, type: :model do
 
   it 'can have uploaded images' #to be tested for image upload
 
-  it { should belong_to(:user) }
+  it { should belong_to(:owner) }
 
   it 'can be marked by user as favorite' do
     project = FactoryGirl.create(:project)

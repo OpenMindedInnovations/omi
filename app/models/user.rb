@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  mount_uploader :avatar, AvatarUploader
+
   acts_as_voter
   acts_as_marker
   acts_as_taggable_on :skills, :roles
