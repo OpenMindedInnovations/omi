@@ -1,8 +1,6 @@
-.project-description
-  p 
-    b Description: 
-    = markdown(project.description)
+.work-description
+  =markdown(project.description)
 
-= link_to work_path, class: 'btn btn-primary btn-lg' do
-  i.fa.fa-arrow-left
-  |  Back to work
+  = link_to work_path, class: 'btn btn-primary btn-lg' do
+    i.fa.fa-arrow-left
+    |  Back to work

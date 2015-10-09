@@ -1,0 +1,108 @@
+// landing page - works section
+
+.navbar
+  margin-bottom: 0
+
+.full-width-wrapper
+  width: 100%
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+.work-header-height
+  height: 65rem
+
+#work-header
+  color: $blue
+  margin: 1em 0
+
+.circle
+  display: inline-block
+  margin-top: 6em
+  height: 3em
+  width: 3em
+  border-radius: 50%
+  background-color: $blue
+ 
+.caret-down
+  width: 0
+  height: 0
+  margin: 0 auto
+  margin-top: 1.2em
+  border-top: .9em solid #fff
+  border-left: .9em solid transparent
+  border-right: .9em solid transparent
+  cursor: pointer
+
+.work-container
+  position: relative
+  width: 100%
+  height: 450px
+  margin-bottom: 5rem
+  border-left: 10px solid rgba(0, 0, 0, 0)
+  opacity: 0.8
+  cursor: pointer
+  overflow: hidden
+  &:hover
+    opacity: 1
+    border-left: 10px solid $blue
+
+.work-container
+  img
+    +transition(all .3s ease)
+    position: relative
+    width: 100%
+    z-index: 1
+
+.work-container
+  &:hover img
+    +scale(1.1)
+    z-index: -1
+
+.work-details-overlay
+  position: absolute
+  top: 0
+  right: 0
+  left: 0
+  bottom: 0
+  z-index: 2
+
+.work-details-inner
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  height: 100%
+  padding: 1.2em 2em
+  h1
+    text-align: center
+    color: #fff
+  p
+    padding: 2em 0
+    text-align: left
+    font-size: 1.2em 
+    color: #fff
+  span
+    font-size: .9em
+    color: white
+
+.half-width
+  width: 50%
+
+
+// work show header
+
+.work-header-wrapper
+  width: 100%
+  height: 35em
+  margin-top: -2em
+  overflow: hidden
+  position: relative
+
+.work-image
+  width: 100%
+
+
+.work-description
+  margin: 2em 0

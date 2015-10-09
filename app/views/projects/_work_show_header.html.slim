@@ -1,0 +1,11 @@
+.work-header-wrapper
+  .work-details-overlay.light-gray-transparent
+    .work-details-inner
+      h1 =project.name
+      p =project.description
+      span =project.tag_list
+
+  - if project.image_url.present?
+    = image_tag project.image_url, class: 'work-image'
+  - else
+    = image_tag 'placeholder.png', class: 'work-image'

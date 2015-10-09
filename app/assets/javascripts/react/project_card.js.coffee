@@ -25,7 +25,7 @@ window.ProjectCard = React.createClass
         h4 {}, @props.name
 
       if @props.image["image"]["url"] == null
-        img className: 'project-image', src: '/assets/placeholder.png'
+        img className: 'project-image', src: '/images/placeholder.png'
       else
         img className: 'project-image', src: @props.image["image"]["url"]
 

@@ -53,7 +53,8 @@ class UsersController < ApplicationController
         :last_name,
         :about_me,
         :skill_list,
-        :role_list
+        :role_list,
+        :avatar
       )
     end
 end
