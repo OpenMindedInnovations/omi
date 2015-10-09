@@ -5,11 +5,12 @@ window.UserCard = React.createClass
     window.location = Routes.user_path(@props.id)
 
   render: ->
-    div onClick: @onUserCardClick, className: 'user',
+    div onClick: @onUserCardClick, className: 'user'
+      img className: 'user-avatar', src: @props.avatar["avatar"]["url"]
       div className: 'user-name',
         p {}, @props.first_name + " " + @props.last_name
-      div className: 'user-email',
-        p {}, @props.email
+#      div className: 'user-email',
+#        p {}, @props.email
       div className: 'user-skils',
         p {}, @props.skill_list.map (skill)=>
           a href: Routes.users_path(skills: "#{skill}"), className: 'btn btn-primary btn-xs',

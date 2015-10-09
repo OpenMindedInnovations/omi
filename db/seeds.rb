@@ -43,6 +43,28 @@ u1.save!
 u2.save!
 u3.save!
 
+u1 = User.find(1)
+u2 = User.find(2)
+u3 = User.find(3)
+
+u1.skill_list = "front end, fullstack, back end, mobile"
+u1.save
+
+u2.skill_list = "business development, growth"
+u2.save
+
+u3.skill_list = "mechanical, engineering, electrical"
+u3.save
+
+u1.role_list = "student"
+u1.save
+
+u2.role_list = "mentor"
+u2.save
+
+u3.role_list = "student, mentor"
+u3.save
+
 festybox = File.open(Rails.root + "app/assets/images/seed/festybox.png")
 bhoulder = File.open(Rails.root + "app/assets/images/seed/bhoulder.png")
 evue = File.open(Rails.root + "app/assets/images/seed/evue.png")
