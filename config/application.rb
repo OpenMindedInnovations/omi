@@ -8,7 +8,7 @@ module OMI
   class Application < Rails::Application
     config.sass.preferred_syntax = :sass
 
-    ActsAsTaggableOn.force_lowercase = true
+    # ActsAsTaggableOn.force_lowercase = true
     ActsAsTaggableOn.remove_unused_tags = true
 
     config.to_prepare do

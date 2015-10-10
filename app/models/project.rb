@@ -34,7 +34,7 @@ class Project < ActiveRecord::Base
   end
 
   def self.sort_filter(sort_param)
-    case sort_param
+    case sort_param.downcase
     when "most-favorited"
       marked_as_favorite.order(count: :desc)
     when "least-favorited"

@@ -9,7 +9,7 @@ class Idea < ActiveRecord::Base
   scope :ordered_tags, ->  { tag_counts.order(taggings_count: :desc).pluck(:name).map { |t| t.gsub(" ", "-")} }
 
   def self.sort_filter(sort_param)
-    case sort_param
+    case sort_param.downcase
     when "votes-up"
       order(cached_votes_up: :desc)
     when "votes-down"
