@@ -21,6 +21,7 @@ html lang="en"
   body class=body_classes 
     = render 'layouts/header'
 
+    <!-- - if current_user.sign_in_count != 1 -->
     - if current_user.sign_in_count == 1
       = render 'pages/welcome'
       - current_user.update_attribute(:sign_in_count, 2)
