@@ -1,18 +1,37 @@
-=image_tag(@user.avatar)
-h1= @user.full_name
+.row
+  .col-xs-12.col-md-6
+    .user-avatar-profile
+      =image_tag(@user.avatar)
+      h1= @user.full_name
+      - if @user.role_list.empty?
+        = "N/A"
+      - @user.role_list.each do |role|
+        = link_to role, users_path(role: parse_name(role)), { class: 'btn btn-default btn-xs' }
+
+  .col-xs-12.col-md-6
+    .user-profile-details
+      .user-profile-about
+        h2 About
+        = @user.about_me.present? ? @user.about_me : "N/A" 
+      .user-profile-skills
+        h2 Skills
+        - @user.skill_list.each do |skill|
+          = link_to skill, users_path(skills: parse_name(skill)), { class: 'btn btn-primary btn-xs' }
 
 .row
   .col-xs-12.col-md-6
-    h2 Ideas
-    - @user.ideas.each do |idea|
-      = render idea
+    .user-profile-ideas
+      h2 Ideas
+      - if @user.ideas.empty?
+        = "N/A"
+      - @user.ideas.each do |idea|
+        = render idea
 
   .col-xs-12.col-md-6
-    h2 Projects
-    - @user.projects.each do |project|
-      = render project
+    .user-profile-projects
+      h2 Projects
+      - if @user.projects.empty?
+        = "N/A"
+      - @user.projects.each do |project|
+        = render project
 
-  .col-xs-12.col-md-12
-    h2 Skills
-    - @user.skill_list.each do |skill|
-      = link_to skill, users_path(skills: parse_name(skill)), { class: 'btn btn-primary btn-xs' }
