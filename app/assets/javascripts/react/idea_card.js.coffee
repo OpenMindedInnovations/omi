@@ -32,6 +32,3 @@ window.IdeaCard = React.createClass
           @props.tag_list.map (tag)=>
             a href: Routes.ideas_path(tags: "#{tag}"), className: 'btn btn-primary btn-xs',
               tag.replace(/\-/g, " ")
-
-      div className: 'idea-comments',
-        i className: 'fa fa-commenting-o'

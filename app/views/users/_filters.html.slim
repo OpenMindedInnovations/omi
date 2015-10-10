@@ -7,6 +7,13 @@
   - role_links = User.list_of_tags("roles", parse=true)
 
   .filters-container
+    -if skill_links.present?
+      .filter-sub-section
+        .filter-sub-title Skills
+        .filter-tag-container
+          - filter_section_generate(skill_params, skill_links, :skills)
+
+
     -if role_links.present?
       .filter-sub-section
         .filter-sub-title Roles
@@ -18,10 +25,3 @@
         .filter-sub-title Sort
         .filter-tag-container
           - filter_section_generate(sort_params, sort_links, :sort)
-
-    -if skill_links.present?
-      .filter-sub-section
-        .filter-sub-title Skills
-        .filter-tag-container
-          - filter_section_generate(skill_params, skill_links, :skills)
-

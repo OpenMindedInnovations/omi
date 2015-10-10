@@ -1,46 +1,47 @@
+// USER CARD
+
 .user
-  height: 20em
-  margin-top: 5em
+  height: 24.5rem
+  margin-top: 8rem
   padding: 1.5rem
-  border: 1px solid $darker-grey
-  border-radius: .4em
-  box-shadow: 1px 1px 3px $darker-grey
-  text-align: center
+  border-radius: $border-radius-base
+  box-shadow: 1px 1px 3px $grey-darker
   cursor: pointer
+  text-align: center
 
   &:hover
-    background: $grey
+    background: $grey-lighter
 
   .user-avatar
     width: 10em
     height: 10em
     border-radius: 50%
-    margin-top: -5em
+    margin-top: -8rem
+    text-align: center
 
   .user-name
-    font-size: 3em
-
-  .user-email
-    font-size: 2em
+    text-align: center
+    color: $grey-text-dark
+    margin: .5rem 0 1rem 0
 
   .user-roles
+    display: block
     height: 2em
+    text-align: center
 
   .user-skills
-    height: 2em
-    text-align: left
-    p
-      margin-bottom: 0
-      padding-left: .5em
-    div 
-      height: 4em
-      overflow: hidden
+    height: 8.8rem
+    overflow: hidden
+    h4
+      margin: .75rem 0
+      color: $grey-text
+
 
 span.checkbox label
   text-transform: capitalize
 
 
-// users show page
+// USER SHOW PAGE
 
 .user-avatar-profile
   padding: 2em
@@ -64,8 +65,7 @@ span.checkbox label
   padding: 2em
 
 
-// user edit page
-
+// USER EDIT PAGE
 
 .edit_user
   .image-upload

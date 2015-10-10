@@ -1,10 +1,15 @@
+// PROJECT FORM
+
 .project-form
   textarea
     min-height: 20rem
 
+
+// PROJECT CARD
+
 .project
   position: relative
-  box-shadow: 1px 1px 3px $darker-grey
+  box-shadow: 1px 1px 3px $grey-darker
   margin-bottom: 2rem
   cursor: pointer
   border-radius: $border-radius-base
@@ -37,7 +42,6 @@
       margin-right: 1rem
 
     .project-members-count
-      //TODO: replace static with dynamic
       font-size: 1.8rem
       vertical-align: middle
       .fa
@@ -49,10 +53,12 @@
         margin-left: .3rem
 
     .project-favorite
-      //TODO: replace static with dynamic
       vertical-align: middle
-      color: $darker-grey
+      color: $grey
       font-size: 1.8rem
 
-      &:hover, &.highlighted
+      &:hover
+        color: lighten($red, 10%)
+
+      &.highlighted
         color: $red

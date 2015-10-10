@@ -5,18 +5,18 @@
   padding: 1rem 1rem 1rem 0
   border-radius: $border-radius-base
   &:hover
-    background: $grey
+    background: $grey-lighter
 
   .idea-voting
     padding: 2rem
     text-align: center
 
     .upvote-icon
-      color: $gray-light
+      color: $grey
       font-size: 3rem
 
       &:hover
-        color: $gray-light
+        color: lighten($blue, 10%)
 
       &.highlighted
         color: $blue
@@ -24,9 +24,3 @@
   .idea-details
     h4
       margin-top: 0
-
-  .idea-comments
-    //TODO: link to messaging
-    i
-      font-size: 2rem
-      color: $gray-light
