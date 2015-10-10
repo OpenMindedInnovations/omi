@@ -15,11 +15,13 @@ html lang="en"
     = analytics_init if Rails.env.production?
 
     = stylesheet_link_tag    "application"
+    = yield :head
     = csrf_meta_tags
-
+ 
   body class=body_classes 
     = render 'layouts/header'
 
+    <!-- - if current_user.sign_in_count != 1 -->
     - if current_user.sign_in_count == 1
       = render 'pages/welcome'
       - current_user.update_attribute(:sign_in_count, 2)

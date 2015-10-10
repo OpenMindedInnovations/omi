@@ -3,6 +3,9 @@
 div#loading
   = image_tag(("loading"), id: 'loader')
 
+= content_for :head do
+  = stylesheet_link_tag 'grid'
+
 h1.headline A collaborative network of entreprenures, developers, and makers.
 
 div#ri-grid.ri-grid.ri-grid-size-2.grid-collage

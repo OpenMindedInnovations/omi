@@ -4,9 +4,13 @@
   p help us better connect you with other community memebers by filling out some simple questions.
   
   #profile_wrapper
-    = simple_form_for current_user do |f|
-      = f.input :skill_list, as: :check_boxes, collection: User.list_of_tags("skills"), wrapper_html: { class: 'col-xs-12 col-md-5 col-lg-6' }
-      = f.input :role_list, as: :check_boxes, collection: User.list_of_tags("roles"), wrapper_html: { class: 'col-xs-12 col-md-5 col-lg-2' }
-      = f.input :about_me, as: :text, wrapper_html: { class: 'col-xs-12 col-md-5 col-lg-4' }
-      = f.submit 'update profile', class: 'btn btn-default'
+    = simple_form_for current_user, remote: true do |f|
+      .col-xs-12.col-md-6
+        = f.input :skill_list, as: :check_boxes, collection: User.list_of_tags("skills")
+      .col-xs-12.col-md-6
+        = f.input :role_list, as: :check_boxes, collection: User.list_of_tags("roles")
+      .col-xs-12.col-md-6
+        = f.input :about_me, as: :text
+      .col-xs-12.col-md-12.center
+        = f.submit 'update profile', class: 'btn btn-default'
     .clear

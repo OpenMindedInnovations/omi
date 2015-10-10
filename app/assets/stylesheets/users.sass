@@ -1,19 +1,76 @@
 .user
-  cursor: pointer
-  text-align: center
-  border: 1px solid $grey
-  padding: 1rem
-  margin: 1rem
+  height: 20em
+  margin-top: 5em
+  padding: 1.5rem
+  border: 1px solid $darker-grey
+  border-radius: .4em
   box-shadow: 1px 1px 3px $darker-grey
+  text-align: center
+  cursor: pointer
 
   &:hover
     background: $grey
 
+  .user-avatar
+    width: 10em
+    height: 10em
+    border-radius: 50%
+    margin-top: -5em
+
   .user-name
-    font-size: 3rem
+    font-size: 3em
 
   .user-email
-    font-size: 2rem
+    font-size: 2em
+
+  .user-roles
+    height: 2em
+
+  .user-skills
+    height: 2em
+    text-align: left
+    p
+      margin-bottom: 0
+      padding-left: .5em
+    div 
+      height: 4em
+      overflow: hidden
 
 span.checkbox label
   text-transform: capitalize
+
+
+// users show page
+
+.user-avatar-profile
+  padding: 2em
+  text-align: center
+  img
+    width: 15em
+    height: 15em
+    border-radius: 50%
+
+.user-profile-details
+  padding: 2em
+  min-height: 20em
+
+  .user-profile-about
+    min-height: 10em
+
+.user-profile-ideas
+  padding: 2em
+
+.user-profile-projects
+  padding: 2em
+
+
+// user edit page
+
+
+.edit_user
+  .image-upload
+    text-align: center
+    input
+      margin: 1em auto
+
+

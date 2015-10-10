@@ -15,6 +15,7 @@ html lang="en"
     = analytics_init if Rails.env.production?
 
     = stylesheet_link_tag    "application"
+    = yield :head
     = csrf_meta_tags
 
   body class="landing-body #{body_classes}"

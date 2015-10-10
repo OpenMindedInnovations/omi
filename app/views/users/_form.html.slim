@@ -1,8 +1,16 @@
 = simple_form_for user do |f|
-  = f.input :first_name, placeholder: "First name..."
-  = f.input :last_name, placeholder: "Last name..."
-  = f.input :email, placeholder: "Email..."
-  = f.input :skill_list, as: :check_boxes, collection: User.list_of_tags("skills"), wrapper_html: { class: 'col-xs-12 col-md-5 col-lg-6' }
-  = f.input :role_list, as: :check_boxes, collection: User.list_of_tags("roles"), wrapper_html: { class: 'col-xs-12 col-md-5 col-lg-2' }
-  = f.input :about_me, as: :text, wrapper_html: { class: 'col-xs-12 col-md-5 col-lg-4' }
-  = f.submit class: 'btn btn-success btn-lg'
+  .col-xs-12.col-md-6.image-upload
+    = image_tag @user.avatar.to_s if @user.avatar.present?
+    = f.file_field :avatar
+  .col-xs-12.col-md-6
+    = f.input :first_name, placeholder: "First name..."
+    = f.input :last_name, placeholder: "Last name..."
+    = f.input :email, placeholder: "Email..."
+  .col-xs-12.col-md-6
+    = f.input :role_list, as: :check_boxes, collection: User.list_of_tags("roles")
+  .col-xs-12.col-md-6
+    = f.input :skill_list, as: :check_boxes, collection: User.list_of_tags("skills")
+  .col-xs-12.col-md-6
+    = f.input :about_me, as: :text
+  .col-xs-12.col-md-6
+    = f.submit class: 'btn btn-success btn-lg'
