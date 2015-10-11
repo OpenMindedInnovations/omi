@@ -65,7 +65,7 @@ gem 'mini_magick'
 gem "fog"
 
 # Pagination
-gem 'will_paginate-foundation'
+gem 'will_paginate-bootstrap' 
 
 # For heroku
 gem 'rails_12factor', group: :production
