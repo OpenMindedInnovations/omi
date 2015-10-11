@@ -1,0 +1,7 @@
+- title @project.name
+- description @project.description
+
+= render 'projects/landing_project_show_header', project: @project
+
+.container
+  = render 'projects/landing_project_description', project: @project, link: @link

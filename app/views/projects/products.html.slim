@@ -1,11 +1,16 @@
 - title 'Products'
 - description 'Showcase of all businesses, ideas, and projects involved with Open Minded Innovations. We like create our own awesome projects but we love to help out other people make their ideas real.'
 
-.full-width-wrapper.product-header-height.blue-background
-  h1#product-header Our Product
-  .col-xs-10.col-md-6.center
+.full-width-wrapper.landing-projects-header.text-center
+  h1 Our Product
+  .col-xs-10.col-md-6
     p We like create our own awesome projects, here are some products that have started and launched by our members here at Open Minded Innovations. 
 
+  a href="#landing-projects-start" class="circle"
+    .caret-down
+
 .container
-  - @projects.each do |project|
-    = render 'projects/products_project', project: project
+  .row
+    #landing-projects-start
+      - @projects.each do |project|
+        = render 'projects/landing_project', project: project, link: products_show_path(project)

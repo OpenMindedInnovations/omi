@@ -3,14 +3,14 @@
 
 .full-width-wrapper.landing-projects-header
   h1 Our Work
-  .col-xs-10.col-md-6.text-center
+  .col-xs-10.col-md-6
     p Showcase of all businesses, ideas, and projects involved with Open Minded Innovations. We like create our own awesome projects but we love to help out other people make their ideas real.
 
   a href="#landing-projects-start" class="circle"
     .caret-down
 
-.container.text-center
+.container
   .row
     #landing-projects-start
     - @projects.each do |project|
-      = render 'projects/landing_project', project: project
+      = render 'projects/landing_project', project: project, link: work_show_path(project)

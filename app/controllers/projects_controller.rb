@@ -26,7 +26,8 @@ class ProjectsController < ApplicationController
   end
 
   def work_show
-    render layout: 'landing', template: 'projects/work_show'
+    @link = work_path
+    render layout: 'landing', template: 'projects/landing_project_show'
   end
 
   def products
@@ -35,7 +36,8 @@ class ProjectsController < ApplicationController
   end
 
   def products_show
-    render layout: 'landing', template: 'projects/products_show'
+    @link = products_path
+    render layout: 'landing', template: 'projects/landing_project_show'
   end
 
   def new 

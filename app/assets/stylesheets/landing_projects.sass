@@ -1,6 +1,7 @@
 body.projects-work, body.projects-products
   .landing-projects-header
     min-height: 65rem
+    text-align: center
     h1
       color: $blue
 
@@ -47,33 +48,32 @@ body.projects-work, body.projects-products
         +scale(1.1)
         z-index: -1
 
-  .landing-project-details-overlay
-    position: absolute
-    top: 0
-    right: 0
-    left: 0
-    bottom: 0
-    z-index: 2
-    background: rgba(0,0,0,.7)
+.landing-project-details-overlay
+  position: absolute
+  top: 0
+  right: 0
+  left: 0
+  bottom: 0
+  z-index: 2
+  background: rgba(0,0,0,.7)
 
-  .landing-project-details-inner
-    display: flex
-    flex-direction: column
-    align-items: center
-    justify-content: center
-    height: 100%
-    padding: 1.5rem 3rem
-    h1
-      text-align: center
-      color: #fff
-    p
-      padding: 2em 0
-      text-align: left
-      font-size: 1.2em 
-      color: #fff
-    span
-      font-size: .9em
-      color: white
+.landing-project-details-inner
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  height: 100%
+  padding: 1.5rem 3rem
+  text-align: center
+  h1
+    color: #fff
+  p
+    padding: 2em 0
+    font-size: 1.2em 
+    color: #fff
+  span
+    font-size: 1.5rem
+    color: white
 
 
 
@@ -82,10 +82,25 @@ body.projects-work_show, body.projects-products_show
   .navbar
     margin-bottom: 0
 
+  .landing-page-header-wrapper
+    width: 100%
+    height: 35em
+    margin-top: -2rem
+    overflow: hidden
+    position: relative
+
+    .landing-page-image
+      width: 100%
+
+
+  .landing-project-description
+    margin: 2rem 0
+
+
 
 body.projects-work_show
   @media (max-width: 730px) 
-    .work-details-inner.half-width
+    .work-details-inner
       width: 100% !important
     .work-image
       width: auto !important

@@ -1,0 +1,11 @@
+.landing-page-header-wrapper
+  .landing-project-details-overlay
+    .landing-project-details-inner
+      h1= project.name
+      p= project.description
+      span= project.tag_list
+
+  - if project.image_url.present?
+    = image_tag project.image_url, class: 'landing-page-image'
+  - else
+    = image_tag 'placeholder.png', class: 'landing-page-image'

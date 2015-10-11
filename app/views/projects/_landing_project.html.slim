@@ -1,11 +1,12 @@
-.landing-projects-container= link_to work_show_path(project)
-  .landing-project-details-overlay
-    .landing-project-details-inner
-      h1= project.name
-      p= project.description
-      span.btn.btn-lg.btn-transparent Learn more
+- cache ['landing-project', project], expires_in: 10.minutes do
+  .landing-projects-container= link_to link
+    .landing-project-details-overlay
+      .landing-project-details-inner
+        h1= project.name
+        p= project.description
+        span.btn.btn-lg.btn-transparent Learn more
 
-  - if project.image_url.present?
-    = image_tag project.image_url, class: 'work-image'
-  - else
-    = image_tag 'placeholder.png', class: 'work-image'
+    - if project.image_url.present?
+      = image_tag project.image_url, class: 'work-image'
+    - else
+      = image_tag 'placeholder.png', class: 'work-image'
