@@ -1,7 +1,5 @@
 class Blog < ActiveRecord::Base
   extend FriendlyId
-
-  has_many :comments, as: :commentable
   
   friendly_id :title, use: [:slugged, :finders]
 

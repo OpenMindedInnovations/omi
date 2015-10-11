@@ -6,28 +6,23 @@
     .col-xs-12
       = render @blog
 
+.container
+  .row
+    .col-xs-12
+      #disqus_thread
+      javascript:
+        /1* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * *1/
+        var disqus_shortname = 'openmindedinnovations'; // required: replace example with your forum shortname
 
-  = render partial: 'comments/comments', locals: { commentable: @blog }
-  = render partial: 'comments/form', locals: { commentable: @blog }
-
-
-/* .container */
-/*   .row */
-/*     .col-xs-12 */
-/*       #disqus_thread */
-/*       javascript: */
-/*         /1* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * *1/ */
-/*         var disqus_shortname = 'openmindedinnovations'; // required: replace example with your forum shortname */
-
-/*         /1* * * DON'T EDIT BELOW THIS LINE * * *1/ */
-/*         (function() { */
-/*             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; */
-/*             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; */
-/*             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); */
-/*         })(); */
-/*       noscript */
-/*         | Please enable JavaScript to view the */
-/*         a href="http://disqus.com/?ref_noscript"} comments powered by Disqus. */
-/*       a.dsq-brlink href="http://disqus.com" */
-/*         | comments powered by */
-/*         span.logo-disqus Disqus */
+        /1* * * DON'T EDIT BELOW THIS LINE * * *1/
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      noscript
+        | Please enable JavaScript to view the
+        a href="http://disqus.com/?ref_noscript"} comments powered by Disqus.
+      a.dsq-brlink href="http://disqus.com"
+        | comments powered by
+        span.logo-disqus Disqus
