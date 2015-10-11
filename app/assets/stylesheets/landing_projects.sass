@@ -1,0 +1,101 @@
+body.projects-work, body.projects-products
+  .landing-projects-header
+    min-height: 65rem
+    h1
+      color: $blue
+
+  .circle
+    display: inline-block
+    margin-top: 8rem
+    height: 4rem
+    width: 4rem
+    border-radius: 50%
+    background-color: $blue
+   
+    .caret-down
+      width: 0
+      height: 0
+      margin: 0 auto
+      margin-top: 1.6rem
+      border-top: 1rem solid #fff
+      border-left: 1rem solid transparent
+      border-right: 1rem solid transparent
+      cursor: pointer
+
+  .landing-projects-container
+    position: relative
+    width: 100%
+    height: 450px
+    margin-bottom: 5rem
+    border-left: 10px solid rgba(0, 0, 0, 0)
+    opacity: 0.8
+    cursor: pointer
+    overflow: hidden
+    a
+      text-decoration: none
+    img
+      +transition(all .25s ease)
+      position: relative
+      width: 100%
+      z-index: 1
+
+    &:hover
+      opacity: 1
+      border-left: 10px solid $blue
+
+      img
+        +scale(1.1)
+        z-index: -1
+
+  .landing-project-details-overlay
+    position: absolute
+    top: 0
+    right: 0
+    left: 0
+    bottom: 0
+    z-index: 2
+    background: rgba(0,0,0,.7)
+
+  .landing-project-details-inner
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    height: 100%
+    padding: 1.5rem 3rem
+    h1
+      text-align: center
+      color: #fff
+    p
+      padding: 2em 0
+      text-align: left
+      font-size: 1.2em 
+      color: #fff
+    span
+      font-size: .9em
+      color: white
+
+
+
+
+body.projects-work_show, body.projects-products_show
+  .navbar
+    margin-bottom: 0
+
+
+body.projects-work_show
+  @media (max-width: 730px) 
+    .work-details-inner.half-width
+      width: 100% !important
+    .work-image
+      width: auto !important
+      height: 100%
+
+
+body.projects-products_show
+  @media (max-width: 1000px) 
+    .product-page-container
+      p  
+        width: 100% !important
+    .product-image
+      display: none !important

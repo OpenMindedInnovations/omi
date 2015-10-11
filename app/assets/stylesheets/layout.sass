@@ -1,19 +1,13 @@
 textarea
   min-height: 6rem
 
-select
-  border-radius: none
-
 .landing-body
-  p, span
+  p
     font-family: 'Merriweather'
 
   p
     font-size: 2rem
     margin-bottom: 2.5rem
-
-  span
-    font-size: 1.8rem
 
 a
   transition: all .15s ease
@@ -24,51 +18,13 @@ a
   &:hover
     text-decoration: underline
 
-.pagination
-  text-align: center
-  li:not(.arrow)
-    display: inline-block
-    float: none
-
-  .arrow:last-child
-    float: right
-
 .page-title
   margin-bottom: 2rem
 
-.btn-transparent
-  margin: 0 2.5em
-  border-radius: 5px
-  border: 1px solid white
-  color: white
-  padding: 1em 2em
-  &:hover
-    background-color: white
-    text-decoration: none
+.full-width-wrapper
+  width: 100%
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
 
-.hover-gray
-  &:hover
-    color: $text-color
-
-.dark-gray-transparent
-  background: rgba(0, 0, 0, 0.7)
-
-.gray-transparent
-  background: rgba(0, 0, 0, 0.5)
-
-.light-gray-transparent
-  background: rgba(0, 0, 0, 0.3)
-
-@media (max-width: 730px) 
-  .work-details-inner.half-width
-    width: 100% !important
-  .work-image
-    width: auto !important
-    height: 100%
-
-@media (max-width: 1000px) 
-  .product-page-container
-    p  
-      width: 100% !important
-  .product-image
-    display: none !important

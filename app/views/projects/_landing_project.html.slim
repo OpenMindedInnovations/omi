@@ -1,9 +1,9 @@
-.work-header-wrapper
-  .work-details-overlay
-    .work-details-inner
+.landing-projects-container= link_to work_show_path(project)
+  .landing-project-details-overlay
+    .landing-project-details-inner
       h1= project.name
       p= project.description
-      span= project.tag_list
+      span.btn.btn-lg.btn-transparent Learn more
 
   - if project.image_url.present?
     = image_tag project.image_url, class: 'work-image'

@@ -1,16 +1,16 @@
 - title 'Work'
 - description 'Showcase of all businesses, ideas, and projects involved with Open Minded Innovations. We like create our own awesome projects but we love to help out other people make their ideas real.'
 
-.full-width-wrapper.work-header-height
-  h1#work-header Our Work
-  .col-xs-10.col-md-6.center
+.full-width-wrapper.landing-projects-header
+  h1 Our Work
+  .col-xs-10.col-md-6.text-center
     p Showcase of all businesses, ideas, and projects involved with Open Minded Innovations. We like create our own awesome projects but we love to help out other people make their ideas real.
 
-  a href="#works-start" class="circle"
+  a href="#landing-projects-start" class="circle"
     .caret-down
 
-.container.center
+.container.text-center
   .row
-    #works-start
+    #landing-projects-start
     - @projects.each do |project|
-      = render 'projects/work_project', project: project
+      = render 'projects/landing_project', project: project

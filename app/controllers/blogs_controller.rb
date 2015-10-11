@@ -13,7 +13,7 @@ class BlogsController < ApplicationController
       @blogs = @blogs.sort_filter(params[:sort])
     end
     
-    @blogs = @blogs.paginate(:page => params[:page], :per_page => 6)
+    @blogs = @blogs.paginate(page: params[:page], per_page: 6)
   end
 
   def new

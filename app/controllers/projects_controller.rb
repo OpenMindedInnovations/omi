@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
       @projects = @projects.sort_filter(params[:sort])
     end
 
-    @projects = @projects.paginate(:page => params[:page], :per_page => 6)
+    @projects = @projects.paginate(page: params[:page], per_page: 6)
   end
 
   def work

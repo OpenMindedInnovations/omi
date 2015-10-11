@@ -7,8 +7,6 @@ class Blog < ActiveRecord::Base
 
   validates_presence_of :title, :content, :author
 
-  self.per_page = 6
-
   scope :ordered_tags, -> { tag_counts.order(taggings_count: :desc).pluck(:name).map { |t| t.gsub(" ", "-")} }
 
   def self.sort_filter(sort_param)

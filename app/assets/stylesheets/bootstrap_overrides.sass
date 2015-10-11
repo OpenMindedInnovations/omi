@@ -2,15 +2,9 @@
   border: 0px
 
 
-// form overrides
+.btn
+  font-weight: 600
 
-// .form-control
-//   border: none
-//   border-bottom: 3px solid $blue
-//   border-radius: none
-
-
-// navbar breakpoint adjustment
 
 .btn.btn-grey
   background: $grey-lighter
@@ -18,6 +12,16 @@
 
   &:hover
     background: darken($grey-lighter, 10%)
+
+
+.btn.btn-transparent
+  margin: 0 3rem
+  border: 1px solid white 
+  color: white
+  &:hover
+    background-color: white
+    text-decoration: none
+    color: $text-color
 
 @media (max-width: 995px) 
   .hidden-xs,

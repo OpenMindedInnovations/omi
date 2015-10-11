@@ -13,7 +13,7 @@ class IdeasController < ApplicationController
       @ideas = @ideas.sort_filter(params[:sort])
     end
 
-    @ideas = @ideas.paginate(:page => params[:page], :per_page => 6)
+    @ideas = @ideas.paginate(page: params[:page], per_page: 6)
   end
 
   def new 
