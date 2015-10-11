@@ -21,10 +21,8 @@ html lang="en"
   body class=body_classes 
     = render 'layouts/header'
 
-    <!-- - if current_user.sign_in_count != 1 -->
-    - if current_user.sign_in_count == 1
+    - if current_user.sign_in_count == 1 && current_user.skill_list.blank? && current_user.role_list.blank?
       = render 'pages/welcome'
-      - current_user.update_attribute(:sign_in_count, 2)
 
     .container
       .row

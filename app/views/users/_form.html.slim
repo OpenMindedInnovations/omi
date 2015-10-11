@@ -7,9 +7,9 @@
     = f.input :last_name, placeholder: "Last name..."
     = f.input :email, placeholder: "Email..."
   .col-xs-12.col-md-6
-    = f.input :role_list, as: :check_boxes, collection: User.list_of_tags("roles")
+    = f.input :role_list, as: :check_boxes, collection: User::ROLES
   .col-xs-12.col-md-6
-    = f.input :skill_list, as: :check_boxes, collection: User.list_of_tags("skills")
+    = f.input :skill_list, as: :check_boxes, collection: User::SKILLS
   .col-xs-12.col-md-6
     = f.input :about_me, as: :text
   .col-xs-12.col-md-6

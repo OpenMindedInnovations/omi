@@ -1,14 +1,14 @@
 #welcome
-  .fa.fa-close.message_button
+  / .fa.fa-close.message_button
   h1 Welcome #{current_user.full_name}!
   p help us better connect you with other community memebers by filling out some simple questions.
   
   #profile_wrapper
-    = simple_form_for current_user, remote: true do |f|
+    = simple_form_for current_user do |f|
       .col-xs-12.col-md-6
-        = f.input :skill_list, as: :check_boxes, collection: User.list_of_tags("skills")
+        = f.input :skill_list, as: :check_boxes, collection: User::SKILLS
       .col-xs-12.col-md-6
-        = f.input :role_list, as: :check_boxes, collection: User.list_of_tags("roles")
+        = f.input :role_list, as: :check_boxes, collection: User::ROLES
       .col-xs-12.col-md-6
         = f.input :about_me, as: :text
       .col-xs-12.col-md-12.center

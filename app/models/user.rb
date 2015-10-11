@@ -7,12 +7,12 @@ class User < ActiveRecord::Base
   acts_as_marker
   acts_as_taggable_on :skills, :roles
 
-  @roles = ["Student", "Mentor"]
-  @skills =  ["Business Development", "Data Science", "Engineering", "Front End", "Back End", "Fullstack", "Mobile", "Biomedical", "Electrical", "Mechanical", "Sales", "Fundraising", "Growth", "Marketing", "Operations", "Product", "UI/UX", "Industrial", "Other"]
+  ROLES = ["Student", "Mentor", "Investor", "Entrepreneur"]
+  SKILLS = ["Business Development", "Data Science", "Engineering", "Front End", "Back End", "Fullstack", "Mobile", "Biomedical", "Electrical", "Mechanical", "Sales", "Fundraising", "Growth", "Marketing", "Operations", "Product", "UI/UX", "Industrial", "Other"]
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :confirmable,
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :ideas
@@ -20,28 +20,6 @@ class User < ActiveRecord::Base
   has_many :projects, through: :teams
 
   validates_presence_of :first_name, :last_name
-  # validates_presence_of   :avatar
-  # validates_integrity_of  :avatar
-  # validates_processing_of :avatar
-
-  def self.list_of_tags(name, parse=false)
-    case name
-    when "skills"
-      list = @skills
-    when "roles"
-      list = @roles
-    end
-
-    if parse == true
-      list.map { |item| item.gsub(" ", "-") }
-    else
-      list
-    end 
-  end
-
-  def self.parse_for_params(arr)
-    arr.map { |item| item.gsub(" ", "-") }
-  end
 
   def full_name
     "#{first_name.capitalize} #{last_name.capitalize}".strip

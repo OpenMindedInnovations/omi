@@ -3,8 +3,8 @@
   - skill_params = params[:skills] || ''
   - role_params = params[:roles] || ''
   - sort_links = ['oldest', 'newest']
-  - skill_links = User.list_of_tags("skills", parse=true)
-  - role_links = User.list_of_tags("roles", parse=true)
+  - skill_links = User::SKILLS.map { |item| item.gsub(" ", "-") }
+  - role_links = User::ROLES.map { |item| item.gsub(" ", "-") }
 
   .filters-container
     -if role_links.present?
