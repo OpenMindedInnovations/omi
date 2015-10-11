@@ -3,6 +3,7 @@ class Idea < ActiveRecord::Base
   acts_as_taggable_on :tags
 
   belongs_to :user
+  has_many :comments, as: :commentable
 
   validates_presence_of :name, :description
 

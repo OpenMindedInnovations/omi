@@ -1,0 +1,4 @@
+= simple_form_for [commentable, Comment.new] do |f|
+  div.form_group
+  = f.input :body, label: false
+  = f.submit 'comment', class: 'btn btn-primary'

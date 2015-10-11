@@ -8,3 +8,5 @@ h1.page-title
 
 - @ideas.each do |idea|
   = render idea
+
+= will_paginate @ideas, renderer: BootstrapPagination::Rails

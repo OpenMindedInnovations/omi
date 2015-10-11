@@ -12,6 +12,8 @@ class IdeasController < ApplicationController
     if params[:sort].present?
       @ideas = @ideas.sort_filter(params[:sort])
     end
+
+    @ideas = @ideas.paginate(:page => params[:page], :per_page => 6)
   end
 
   def new 
