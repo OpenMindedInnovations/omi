@@ -1,0 +1,7 @@
+.row
+  .col-xs-12
+    h3 comments
+    - commentable.comments.each do |comment|
+        .comment-box
+          = image_tag(comment.user.avatar, size: "50")
+          .comment-text = comment.body

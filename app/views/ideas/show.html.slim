@@ -16,10 +16,6 @@
 
     h4= link_to @idea.user.full_name, @idea.user
 
-
-
-
-
-
-
+= render partial: 'comments/comments', locals: { commentable: @idea }
+= render partial: 'comments/form', locals: { commentable: @idea }
 

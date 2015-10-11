@@ -12,12 +12,6 @@ h1
   .col-xs-12.col-md-6
     = render 'projects/description', project: @project
 
-    
-
-
-
-
-
-
-
+= render partial: 'comments/comments', locals: { commentable: @project }
+= render partial: 'comments/form', locals: { commentable: @project }
 
