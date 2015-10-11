@@ -20,6 +20,7 @@ html lang="en"
  
   body class=body_classes 
     = render 'layouts/header'
+    = render 'pages/join_slack'
 
     - if current_user.sign_in_count == 1 && current_user.skill_list.blank? && current_user.role_list.blank?
       = render 'pages/welcome'
