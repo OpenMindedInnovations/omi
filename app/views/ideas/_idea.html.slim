@@ -1,2 +1,2 @@
 / - cache idea, expires_in: 10.minutes do
-= react_component('IdeaCard', render(partial: 'ideas/idea.json.jbuilder', locals: {idea: idea}))
+= react_component('IdeaCard', render(partial: 'ideas/idea.json.jbuilder', locals: {idea: idea}), {prerender: true})

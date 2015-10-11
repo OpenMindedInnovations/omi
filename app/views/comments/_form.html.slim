@@ -1,3 +1,3 @@
 = simple_form_for [commentable, Comment.new], html: {class: 'comment-form'} do |f|
-  = f.input :body, label: false
-  = f.submit 'comment', class: 'btn btn-primary'
+  = f.input :body, label: false, placeholder: 'Enter message'
+  = f.submit 'Submit Message', class: 'btn btn-primary'

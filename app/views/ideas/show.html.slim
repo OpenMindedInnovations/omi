@@ -8,13 +8,15 @@
       - if is_admin or current_user.id == @idea.user_id
       = link_to 'Edit', edit_idea_path(@idea), class: 'btn btn-success pull-right'
 
+    h4
+      | By 
+      = link_to @idea.user.full_name, @idea.user
+
     .tags
       - @idea.tag_list.each do |tag|
         = link_to tag, ideas_path(tags: tag), class: 'btn btn-primary btn-xs'
 
     p= @idea.description
-
-    h4= link_to @idea.user.full_name, @idea.user
 
 = render partial: 'comments/comments', locals: { commentable: @idea }
 = render partial: 'comments/form', locals: { commentable: @idea }
