@@ -21,26 +21,27 @@ window.ProjectCard = React.createClass
     favorite_classes += ' highlighted' if @state.current_user_favorite
 
     div onClick: @onProjectCardClick, className: 'project',
-      div className: 'project-title',
-        h4 {}, @props.name
+      div className: 'project-topper',
 
-      if @props.image["image"]["url"] == null
-        img className: 'project-image', src: '/images/placeholder.png'
-      else
-        img className: 'project-image', src: @props.image["image"]["url"]
+        div className: 'project-details',
+          h4 className: 'project-title', @props.name
+          
 
-      div className: 'project-details',
-        p {}, @props.description
+        if @props.image["image"]["url"] == null
+          img className: 'project-image', src: '/images/placeholder.png'
+        else
+          img className: 'project-image', src: @props.image["image"]["url"]
+
+      div className: 'project-footer',
+        p className: 'project-description', @props.description
 
         div className: 'project-activities',
           div className: 'tags',
             a href: Routes.projects_path(status: "#{@props.status}"), className: 'btn btn-success btn-xs',
-              @props.status
+              @props.category
 
-          div className: 'tags',
-            @props.tag_list.map (tag)=>
-              a href: Routes.projects_path(tags: "#{tag}"), className: 'btn btn-primary btn-xs',
-                tag.replace(/\-/g, " ")
+            a href: Routes.projects_path(status: "#{@props.status}"), className: 'btn btn-grey btn-xs',
+              @props.status
 
           div onClick: @onFavorite, className: favorite_classes,
             i className: 'fa fa-heart'
@@ -48,4 +49,10 @@ window.ProjectCard = React.createClass
           div className: 'project-members-count',
             i className: 'fa fa-user'
             span {}, @state.favorites
+
+        div className: 'project-tags',
+          div className: 'tags',
+            @props.tag_list.map (tag)=>
+              a href: Routes.projects_path(tags: "#{tag}"), className: 'btn btn-primary btn-xs',
+                tag.replace(/\-/g, " ")
 

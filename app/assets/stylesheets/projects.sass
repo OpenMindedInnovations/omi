@@ -9,56 +9,87 @@
 
 .project
   position: relative
-  box-shadow: 1px 1px 3px $grey-darker
+  +box-shadow(1px 1px 3px $grey-darker)
   margin-bottom: 2rem
   cursor: pointer
-  border-radius: $border-radius-base
+  +border-radius
   overflow: hidden
 
-  .project-image
-    width: 100%
+  .project-topper
+    position: relative
+    overflow: hidden
+    .project-image
+      position: relative
+      z-index: -1
+      width: 100%
+      +filter(blur, 2px)
+      +transition(all .25s ease)
 
-  .project-title
-    position: absolute
-    background: rgba(0, 0, 0, 0.7)
-    top: 0
-    right: 0
-    left: 0
-    h4
-      color: #fff
-      font-size: 3rem
-      text-align: center
-
-      a
+    .project-details
+      display: flex
+      flex-direction: column
+      justify-content: center
+      position: absolute
+      background: rgba(0, 0, 0, 0.4)
+      +transition(all .25s ease)
+      top: 0
+      right: 0
+      left: 0
+      bottom: 0
+      margin: 0
+      .project-title
         color: #fff
-        text-decoration: none
+        font-size: 3rem
+        padding: 0 4rem
+        text-align: center
 
-  .project-details
+  .project-footer
     padding: 1rem
 
-  .project-activities
-    > div
-      display: inline-block
-      margin-right: 1rem
+    .project-description
+      text-overflow: ellipsis
+      overflow: hidden
+      white-space: nowrap
 
-    .project-members-count
-      font-size: 1.8rem
-      vertical-align: middle
-      .fa
-        color: lighten($text-color, 15%)
-      span
-        color: lighten($text-color, 15%)
-        font-size: 1.4rem
-        font-weight: 600
-        margin-left: .3rem
+    .project-activities
+      margin-bottom: .25rem
+      > div
+        display: inline-block
+        margin-right: 1rem
 
-    .project-favorite
-      vertical-align: middle
-      color: $grey
-      font-size: 1.8rem
+      .project-members-count
+        font-size: 1.8rem
+        vertical-align: top
+        .fa
+          color: lighten($text-color, 15%)
+        span
+          color: lighten($text-color, 15%)
+          font-size: 1.4rem
+          font-weight: 600
+          margin-left: .3rem
 
-      &:hover
-        color: lighten($red, 10%)
+      .project-favorite
+        vertical-align: top
+        color: $grey
+        font-size: 1.8rem
 
-      &.highlighted
-        color: $red
+        &:hover
+          color: lighten($red, 10%)
+
+        &.highlighted
+          color: $red
+
+    .project-tags
+      height: 23px
+      overflow: hidden
+      .tags
+        .btn.btn-xs
+          margin-bottom: 0
+
+  &:hover
+    .project-topper
+      .project-image
+        +filter(blur, .5px)
+
+      .project-details
+        background: rgba(0, 0, 0, 0.6)

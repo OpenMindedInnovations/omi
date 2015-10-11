@@ -12,6 +12,13 @@
 
 // navbar breakpoint adjustment
 
+.btn.btn-grey
+  background: $grey-lighter
+  color: $text-color
+
+  &:hover
+    background: darken($grey-lighter, 10%)
+
 @media (max-width: 995px) 
   .hidden-xs,
   .navbar-brand
