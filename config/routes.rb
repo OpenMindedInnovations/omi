@@ -11,9 +11,7 @@ OMI::Application.routes.draw do
 
   root "pages#home"
 
-  resources :blogs do
-    resources :comments, module: :blogs
-  end
+  resources :blogs
 
   resources :projects do
     resources :comments, module: :projects
