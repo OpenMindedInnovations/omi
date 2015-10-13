@@ -29,12 +29,19 @@ a
   align-items: center
 
 .slack-banner
-  text-align: right
   background: #2E2E2E
-  padding: 1rem 0
+  padding: 1.5rem 0
   margin-top: -2rem
   margin-bottom: 2rem
+  .slack-message
+    margin: 0
+    color: #fff
+    max-width: 40rem
+    float: left
+    line-height: 2.4rem
+
   .btn.btn-transparent
+    float: right
     border: 2px solid white
     text-decoration: none
     margin: 0
@@ -46,3 +53,7 @@ a
       &:hover
         color: #2E2E2E
         text-decoration: none
+
+  @media (max-width: $screen-md-min)
+    .btn.btn-transparent
+      width: 100%
