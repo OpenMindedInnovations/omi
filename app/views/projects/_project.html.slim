@@ -1,2 +1,2 @@
-/ - cache project, expires_in: 10.minutes do
-= react_component('ProjectCard', render(partial: 'projects/project.json.jbuilder', locals: {project: project}), {prerender: true})
+- cache project, expires_in: 10.minutes do
+  = react_component('ProjectCard', render(partial: 'projects/project.json.jbuilder', locals: {project: project}), {prerender: true})

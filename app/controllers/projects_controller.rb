@@ -54,9 +54,11 @@ class ProjectsController < ApplicationController
   def toggle_favorite
     if @project.marked_as?(:favorite, by: current_user)
       @project.unmark :favorite, by: current_user
+      @project.touch
       render json: { favorites: @project.users_have_marked_as_favorite.size, current_user_favorite: @project.marked_as?(:favorite, by: current_user) }
     else
       current_user.favorite_projects << @project
+      @project.touch
       render json: { favorites: @project.users_have_marked_as_favorite.size, current_user_favorite: @project.marked_as?(:favorite, by: current_user) }
     end
   end
