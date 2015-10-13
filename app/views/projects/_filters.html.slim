@@ -4,7 +4,7 @@
   - status_params = params[:status] || ''
   - sort_links = ['most-favorited', 'least-favorited', 'oldest', 'newest']
   - tag_links = Project.ordered_tags
-  - status_links = Project.status_list
+  - status_links = Project.status_list.compact
 
   .filters-container
     -if sort_links.present?
