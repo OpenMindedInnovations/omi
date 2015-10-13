@@ -17,9 +17,9 @@ div#ri-grid.ri-grid.ri-grid-size-2.grid-collage
       - i += 1
 
 / TODO: link to hire us page when it's done
-.col-xs-12.col-md-12.call-action
-  = link_to "Join us", new_user_registration_path, class: 'btn btn-transparent hover-blue', method: :get
-  = link_to "Hire us", "#", class: 'btn btn-transparent hover-blue', method: :get
+.call-action
+  = link_to "Join us", new_user_registration_path, class: 'btn btn-lg btn-transparent hover-blue', method: :get
+  = link_to "Hire us", "https://openmindedinnovations.typeform.com/to/funB9d", class: 'btn btn-lg btn-transparent hover-blue',target: '_blank'
 
 / loading home page js
 = page_javascript('modernizr_grid', 'gridrotator_grid', 'settings_grid')
