@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_filter :authenticate_user!, except: [:work, :products]
+  before_filter :authenticate_user!, except: [:work, :products, :work_show, :products_show]
   before_filter :get_project, only: [:show, :edit, :update, :destroy, :work_show, :products_show, :toggle_favorite]
 
   def index

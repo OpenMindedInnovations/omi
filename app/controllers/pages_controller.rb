@@ -13,8 +13,8 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @ideas = Idea.all.order(cached_votes_up: :desc)
-    @projects = Project.all.order(created_at: :desc)
+    @ideas = Idea.all.order(cached_votes_up: :desc).limit(10)
+    @projects = Project.all.order(created_at: :desc).limit(5)
     render layout: 'application'
   end
 end
