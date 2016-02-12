@@ -6,7 +6,7 @@ class Project < ActiveRecord::Base
   markable_as :favorite
 
   belongs_to :owner, class_name: 'User', foreign_key: 'user_id'
-  has_many :teams
+  has_many :teams, dependent: :destroy
   has_many :users, through: :teams
   accepts_nested_attributes_for :teams
   has_many :comments, as: :commentable
