@@ -21,7 +21,7 @@ class ProjectsController < ApplicationController
   end
 
   def work
-    @projects = Project.with_category(:contract).where(featured: true)
+    @projects = Project.with_category(:contract).where(featured: true).order(created_at: :desc)
     render layout: 'landing'
   end
 
